@@ -23,6 +23,18 @@ class Course extends Model
             return 5;
         }        
     }
+
+    //Query Scopes // filtrado de categorias y niveles
+    public function scopeCategory($query, $category_id){
+        if($category_id){
+            return $query->where('category_id', $category_id);
+        }
+    }
+    public function scopeLevel($query, $level_id){
+        if($level_id){
+            return $query->where('level_id', $level_id);
+        }
+    }
     
     public function getRouteKeyName()
     {
