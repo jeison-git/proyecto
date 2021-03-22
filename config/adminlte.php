@@ -247,6 +247,13 @@ return [
             'active'  =>  ['admin/roles*']
             
         ],
+        [
+            'text'    => 'Usuarios',
+            'route'   => 'admin.users.index',
+            'icon'    => 'fas fa-fw fa-users',
+            'active'  =>  ['admin/users*']
+            
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
@@ -432,5 +439,5 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/9.-Other-Configuration
     */
 
-    'livewire' => false,
+    'livewire' => true,
 ];
