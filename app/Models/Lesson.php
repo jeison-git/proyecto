@@ -11,6 +11,9 @@ class Lesson extends Model
     
     protected $guarded = ['id'];
 
+    public function getCompletedAttribute(){
+        return $this->users->contains(auth()->user()->id);
+    }
     ///relacion uno a uno 
     public function description(){
 

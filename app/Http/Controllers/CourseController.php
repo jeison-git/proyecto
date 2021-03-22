@@ -24,5 +24,12 @@ class CourseController extends Controller
 
     }
 
+    public function enrolled(Course $course){
+
+        $course->students()->attach(auth()->user()->id);
+
+        return redirect()->route('courses.status', $course);
+    }    
+
 
 }

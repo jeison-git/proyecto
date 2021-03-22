@@ -1,5 +1,5 @@
 <x-app-layout>
-
+    {{-- imagen de presentacion y detalles del curso --}}
     <section class="bg-gray-400 py-12 shadow-lg mb-12">
         <div class="container grid grid-cols-1 lg:grid-cols-2 gap-6">
             <figure>
@@ -15,7 +15,7 @@
             </div>
         </div>
     </section>
-
+    {{--- seccion del plan de estudio --}}
     <div class="container grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div class="order-2 lg:col-span-2 lg:order-1">
             <section class="card mb-12">
@@ -29,7 +29,7 @@
                     </ul>
                 </div>
             </section>
-
+            {{--seccin de temas--}}
             <section>
                 <h1 class="font-bold text-3xl mb-2">Temario</h1>
 
@@ -47,7 +47,7 @@
                         <header class="bg-gray-400 shadow-lg rounded px-4 py-2 cursor-pointer" x-on:click="open= !open">
                             <h1 class="font-bold text-lg text-black">{{$section->name}}</h1>
                         </header>
-
+                        {{-- seccin de lecciones y barras  grises--}}
                         <div class="card py-2 px-4" x-show="open">
                             <ul class="grid grid-cols-1 gap-2">
                                 @foreach ($section->lessons as $lesson)
@@ -60,7 +60,7 @@
                     
                 @endforeach
             </section>
-
+            {{--seccion de requisitos--}}
             <section class="mb-8">
                 <h1 class="font-bold text-3xl">Requisitos</h1>
 
@@ -70,7 +70,7 @@
                     @endforeach
                 </ul>
             </section>
-
+            {{--seccion de descripcion del curso--}}
             <section>
                 <h1 class="font-bold text-3xl">Descrpción</h1>
                 <div class="text-gray-900 text-base">
@@ -84,7 +84,7 @@
         <div class="order-1 lg:order-2">
             <section class="card mb-4">
                 <div class="card-body">
-
+                    {{-- targeta para matricularse al curso--}}
                     <div class="flex items-center">
                         <img class="h-12 w-12 object-cover rounded-full shadow-lg" src="{{$course->teacher->profile_photo_url}}" alt="{{$course->teacher->name}}">
                         <div class="ml-4">
@@ -93,11 +93,21 @@
                         </div>
                     </div>
 
-                    <a href="" class="btn btn-danger btn-block mt-4">Matricularse</a>
-                
+                     @can('enrolled', $course)   
+
+                        <a class="btn btn-danger btn-block mt-4" href="{{(route('courses.status', $course))}}"> Continuar con el curso</a>
+                     
+                     @else
+
+                        <form action="{{route('courses.enrolled', $course)}}" method="POST">
+                            @csrf                                               
+                            <button class="btn btn-danger btn-block mt-4" type="submit">Matricularse</button>
+                        </form>                    
+                     @endcan 
+
                 </div>
             </section>
-
+            {{--seccion  que refleja otros cursos similares al que esta visualizando--}}
             <aside class="hidden lg:block">
                 @foreach ($similares as $similar)
                     <article class="flex mb-6">
@@ -116,9 +126,7 @@
                             <p class="text-sm"><i class="fas fa-star text-yellow-400 mr-2"></i>{{$similar->rating}}</p>
 
                         </div>
-
-                    </article>
-                    
+                    </article>                    
                 @endforeach
             </aside>
 

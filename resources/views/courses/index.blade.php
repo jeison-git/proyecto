@@ -6,14 +6,8 @@
             <h1 class="text-black font-fold text-3xl">Que las escuzas no te alcancen Aqui podras seguir tu lession</h1>
                 <p class="text-black text-lg mb-4">la mejor manera de que estes actualizado y7 aportes contenido a esta pagina como colaborador</p>
                 <!-- component search bar -->                   
-              <div class="pt-2 relative mx-auto text-gray-600">
-                <input class="w-full border-2 border-gray-400 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
-                type="search" name="search" placeholder="Search">
-                <!-- boton search: -->
-                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded absolute right-0 top-0 mt-2 focus:outline-none">
-                Buscar
-                </button>                        
-              </div>            
+             <!-- barra de busqueda que se encuentra en el componente livewire -->                 
+             @livewire('search')           
         </div>
     </div>
 </section>
