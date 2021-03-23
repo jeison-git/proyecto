@@ -9,6 +9,14 @@ use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:Leer usuarios')->only('index');        
+        $this->middleware('can:Editar usuarios')->only('edit', 'update');
+       // $this->middleware('can:Crear usuarios')->only('create', 'store');
+       // $this->middleware('can:Eliminar usuarios')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,9 +25,7 @@ class UserController extends Controller
     public function index()
     {
         return view('admin.users.index');
-    }
-
-    
+    }    
     
     /**
      * Show the form for editing the specified resource.
