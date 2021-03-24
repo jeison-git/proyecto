@@ -34,5 +34,11 @@
         @stack('modals')
 
         @livewireScripts
+
+        @isset($js)            
+        
+            {{$js}} {{--scripts de la vista instructor.courses.edit para el slug--}}
+
+        @endisset
     </body>
 </html>
