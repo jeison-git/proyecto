@@ -3,7 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Lesson;
-
+use Illuminate\Support\Facades\Storage;
 
 class LessonObserver
 {
@@ -36,6 +36,13 @@ public function updating(Lesson $lesson){
         $patron = '/\/\/(www\.)?vimeo.com\/(\d+)($|\/)/';
         $array = preg_match($patron, $url, $parte);
         $lesson->iframe = '<iframe src="https://player.vimeo.com/video/' . $parte[2] . '" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>';
+    }
+}
+
+public function deleting(Lesson $lesson){
+    if($lesson->resource){
+        Storage::delete($lesson->resource->url);
+        $lesson->resource->delete();
     }
 }
 
