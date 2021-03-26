@@ -45,8 +45,8 @@
                             <a href="{{Route('instructor.courses.goals', $course)}}">Metas del curso</a>
                         </li>
         
-                        <li class="leading-7 mb-1 border-l-4 border-transparent pl-2">
-                            <a href="">Estudiantes</a>
+                        <li class="leading-7 mb-1 border-l-4 @routeIs('instructor.courses.students', $course) border-blue-500 @else border-transparent @endif pl-2">
+                            <a href="{{Route('instructor.courses.students', $course)}}">Estudiantes</a>
                         </li>
                     </ul>
         
