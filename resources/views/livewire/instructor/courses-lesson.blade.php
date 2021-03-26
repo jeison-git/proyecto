@@ -57,17 +57,22 @@
                             <p class="text-sm">Plataforma: {{$item->platform->name}}</p>
                             <p class="text-sm">Enlace: <a class="text-blue-600" href="{{$item->url}}" target="_blank">{{$item->url}}</a></p>
                        
-                        <div class="mt-2">
+                        <div class="my-2">
                             <button class="btn btn-primary text-sm" wire:click="edit({{$item}})">Editar</button>
                             <button class="btn btn-danger text-sm" wire:click="destroy({{$item}})">Eliminar</button>
-                        </div>                        
+                        </div> 
+                        
+                        <div>
+                            @livewire('instructor.lesson-description', ['lesson' => $item], key($item->id)) {{-- se extendera el componente y  la vista lesson-description--}}
+                        </div>
+
                     </div>
                 @endif
 
             </div>
         </article>        
     @endforeach
-
+        {{--card para agregar y actualizar lecciones y secciones--}}
     <div class="mt-4" x-data="{open: false}">
         <a x-show="!open" x-on:click="open = true" class="flex items-center cursor-pointer mb-4 ml-2">
             <i class="fas fa-plus-square text-2xl text-red-500 mr-2"></i>
