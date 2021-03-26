@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
+use App\Models\Lesson;
+use App\Observers\LessonObserver;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -23,6 +26,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        Lesson::observe(LessonObserver::class);
+
         Blade::directive('routeIs', function ($expression) {
             return "<?php if(Request::url() == route($expression)): ?>";
         });

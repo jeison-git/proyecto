@@ -16,7 +16,7 @@
                     @if ($section->id == $item->id)
 
                         <form wire:submit.prevent="update">
-                            <input wire:model="section.name"  class="form-input w-full rounded" placeholder="Ingrese el nombre de la sección">
+                            <input wire:model="section.name"  class="form-input mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-blue-500 sm:text-sm" placeholder="Ingrese el nombre de la sección">
                        
                             @error('section.name')
                                 <span class="text-xs text-red-500">{{$message}}</span>                           
@@ -59,7 +59,7 @@
 
                     <div class="mb-4">
 
-                        <input wire:model="name" class="form-input w-full" placeholder="Escriba el nombre de la sección">
+                        <input wire:model="name" class="form-input mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-blue-500 sm:text-sm" placeholder="Escriba el nombre de la sección">
                         
                         @error('name')
                           <span class="text-xs text-red-500">{{$message}}</span>  
