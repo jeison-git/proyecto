@@ -53,7 +53,7 @@ class Course extends Model
 
     }
 
-    public function audiencies(){
+    public function audiences(){
 
         return $this->hasMany('App\Models\Audience');
 
