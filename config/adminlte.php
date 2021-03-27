@@ -85,7 +85,7 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
+    'layout_fixed_sidebar' => true,
     'layout_fixed_navbar' => null,
     'layout_fixed_footer' => null,
 
@@ -235,7 +235,7 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'    => 'Dashboard',
+            'text'    => 'Inicio',
             'route'   => 'admin.home',
             'icon'    => 'fas fa-fw fa-home',
             'can'     => 'Ver dashboard'
@@ -246,22 +246,20 @@ return [
             'route'   => 'admin.roles.index',
             'icon'    => 'fas fa-fw fa-users-cog',
             'can'     => 'Listar role'  ,
-            'active'  =>  ['admin/roles*']
-            
+            'active'  =>  ['admin/roles*'],            
         ],
         [
             'text'    => 'Usuarios',
             'route'   => 'admin.users.index',
             'icon'    => 'fas fa-fw fa-users',
             'can'     => 'Leer usuarios'  ,
-            'active'  =>  ['admin/users*']
-            
+            'active'  =>  ['admin/users*'],            
         ],
-        ['header' => 'account_settings'],
+        ['header' => 'OPCIONES DE CURSOS'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text' => 'Cursos por aprobar',
+            'route'  => 'admin.courses.index',
+            'icon' => 'fas fa-fw fa-share',
         ],
         [
             'text' => 'change_password',
