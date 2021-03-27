@@ -1,8 +1,8 @@
-<x-instructor-layout>
+<x-instructor-layout :course="$course">
 
-    <x-slot name="course">
+    {{--<x-slot name="course">
         {{$course->slug}}
-    </x-slot>
+    </x-slot>--}}
 
     {{-- Contenido dinamico el main esta en layout instructor --}}
      
