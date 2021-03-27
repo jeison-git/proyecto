@@ -3,7 +3,13 @@
     <section class="bg-gray-400 py-12 shadow-lg mb-12">
         <div class="container grid grid-cols-1 lg:grid-cols-2 gap-6">
             <figure>
-                <img class="h-60 w-full object-cover" src="{{Storage::url($course->image->url)}}" alt="">
+                
+                @if ($course->image)
+                    <img class="h-60 w-full object-cover" src="{{Storage::url($course->image->url)}}" alt="">
+                @else
+                    <img lass="h-60 w-full object-cover" src="https://cdn.pixabay.com/photo/2015/12/22/04/00/edit-1103599__340.png" alt="">
+                @endif
+                
             </figure>
             <div class="text-black">
                 <h1 class="text-4xl">{{$course->title}}</h1>
@@ -15,17 +21,34 @@
             </div>
         </div>
     </section>
-    {{--- seccion del plan de estudio --}}
+
+    {{--- seccion del plan de estudio y metas --}}
     <div class="container grid grid-cols-1 lg:grid-cols-3 gap-6">
+         
+        @if (session('info'))
+        <div class="lg:col-span-3" x-data="{open: true}" x-show="open">
+            <div class="relative px-4 py-3 leading-normal border border-red-300 text-red-800 bg-red-200 rounded-lg" role="alert">                               
+                <span class="absolute inset-y-0 left-0 flex items-center ml-2">                    
+                  <svg x-on:click="open=false" class="w-4 h-4 fill-current" role="button" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+                </span>
+                <p class="ml-6 text-center">{{session('info')}}</p>
+              </div>
+        </div>            
+        @endif
+
         <div class="order-2 lg:col-span-2 lg:order-1">
             <section class="card mb-12">
                 <div class="card-body">
                     <h1 class="font-bold text-3xl mb-2">Plan de estudios</h1>
-
+                    {{--metas--}}
                     <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
-                        @foreach ($course->goals as $goal)
+                       
+                        @forelse ($course->goals as $goal)
                             <li class="text-gray-800 text-base"><i class="fas fa-check text-gray-700 mr-2"></i>{{$goal->name}}</li>                            
-                        @endforeach
+                        @empty
+                            <li class="text-gray-700 text-base"></i>No hay metas asignadas</li>
+                        @endforelse
+                        
                     </ul>
                 </div>
             </section>
@@ -33,15 +56,13 @@
             <section>
                 <h1 class="font-bold text-3xl mb-2">Temario</h1>
 
-                @foreach ($course->sections as $section)
+                @forelse ($course->sections as $section)
                     <article class="mb-4 shadow-lg" 
-                    @if ($loop->first)
 
+                    @if ($loop->first)
                         x-data="{ open: true }"                        
                         @else
-
-                        x-data="{ open: false }"
-                        
+                        x-data="{ open: false }"                        
                     @endif>
 
                         <header class="bg-gray-400 shadow-lg rounded px-4 py-2 cursor-pointer" x-on:click="open= !open">
@@ -57,17 +78,26 @@
                         </div>
 
                         </article>
-                    
-                @endforeach
+                        
+                        @empty
+
+                        <article class="card">
+                            <div class="card-body">
+                                No hay secciones asignadas 
+                            </div>
+                        </article>
+                @endforelse
             </section>
             {{--seccion de requisitos--}}
             <section class="my-8">
                 <h1 class="font-bold text-3xl">Requisitos</h1>
 
                 <ul class="list-disc list-inside">
-                    @foreach ($course->requirements as $requirement)
+                    @forelse ($course->requirements as $requirement)
                         <li class="text-gray-900 text-base">{{$requirement->name}}</li>                        
-                    @endforeach
+                    @empty
+                        <li class="text-gray-800 text-base">No hay requerimientos</li>
+                    @endforelse
                 </ul>
             </section>
             {{--seccion de descripcion del curso--}}
@@ -78,13 +108,12 @@
                 </div>
             </section>
 
-
         </div>
-
         <div class="order-1 lg:order-2">
+             {{-- targeta para aprobar al curso--}}
             <section class="card mb-4">
                 <div class="card-body">
-                    {{-- targeta para matricularse al curso--}}
+                   
                     <div class="flex items-center">
                         <img class="h-12 w-12 object-cover rounded-full shadow-lg" src="{{$course->teacher->profile_photo_url}}" alt="{{$course->teacher->name}}">
                         <div class="ml-4">
@@ -93,43 +122,14 @@
                         </div>
                     </div>
 
-                     @can('enrolled', $course)   
-
-                        <a class="btn btn-danger btn-block mt-4" href="{{(route('courses.status', $course))}}"> Continuar con el curso</a>
-                     
-                     @else
-
-                        <form action="{{route('courses.enrolled', $course)}}" method="POST">
-                            @csrf                                               
-                            <button class="btn btn-danger btn-block mt-4" type="submit">Matricularse</button>
-                        </form>                    
-                     @endcan 
+                     <form action="{{route('admin.courses.approved', $course)}}" class="mt-4" method="POST">
+                         @csrf
+                        <button type="submit" class="btn btn-danger w-full">Aprobar curso</button>
+                     </form>
 
                 </div>
             </section>
-            {{--seccion  que refleja otros cursos similares al que esta visualizando--}}
-            <aside class="hidden lg:block">
-                @foreach ($similares as $similar)
-                    <article class="flex mb-6">
-                        <img class="h-32 w-40 object-cover rounded shadow-lg" src="{{Storage::url($similar->image->url)}}" alt="">
-                        <div class="ml-3">
-
-                            <h1>
-                               <a class="font-bold text-gray-900 mb-3" href="{{route('courses.show', $similar)}}">{{Str::limit($similar->title, 40)}}</a>   
-                            </h1>
-
-                            <div class="flex items-center">
-                                <img  class="h-8 w-8 object-cover rounded-full shadow-lg" src="{{$similar->teacher->profile_photo_url}}" alt="">
-                                <p class="text-gray-700 text-sm ml-2">{{$similar->teacher->name}}</p>
-                            </div>
-
-                            <p class="text-sm"><i class="fas fa-star text-yellow-400 mr-2"></i>{{$similar->rating}}</p>
-
-                        </div>
-                    </article>                    
-                @endforeach
-            </aside>
-
+           
         </div>
 
     </div>
