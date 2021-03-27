@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Level;
 use App\Models\Price;
+use App\Models\Observation;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -165,10 +166,23 @@ class CourseController extends Controller
     }
 
     public function status(Course $course){
-        $course->status = 2;
+
+        if($course->observation){
+
+            $course->observation->delete();
+
+        }else{
+            $course->status = 2;
+            $course->save();
+        }
+        /*$course->status = 2;
         $course->save();
-        return back();
+        $course->observation->delete();*/
+        return redirect()->route('instructor.courses.edit', $course);
     }
 
+        public function observation(Course $course){
+            return view('instructor.courses.observation', compact('course'));
+        }
 
 }
