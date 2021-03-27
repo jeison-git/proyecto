@@ -9,7 +9,7 @@
     <x-table-responsive>
 
         <div class="px-6 py-4">
-            <input wire:model="search" class="form-input  w-full flex-1 rounded focus:outline-none border-2 border-gray-400" placeholder="Ingrese el nombre de un estudiante ...">
+            <input wire:model="search" class="form-input mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-blue-500 sm:text-sm" placeholder="Ingrese el nombre de un estudiante ...">
         </div>
 
         @if ($students->count())
