@@ -257,6 +257,11 @@ return [
         ],
         ['header' => 'OPCIONES DE CURSOS'],
         [
+            'text' => 'Categorías',
+            'route'  => 'admin.categories.index',
+            'icon' => 'fas fa-fw fa-cogs',
+        ],
+        [
             'text' => 'Cursos por aprobar',
             'route'  => 'admin.courses.index',
             'icon' => 'fas fa-fw fa-share',
