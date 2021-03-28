@@ -262,6 +262,11 @@ return [
             'icon' => 'fas fa-fw fa-cogs',
         ],
         [
+            'text' => 'Niveles',
+            'route'  => 'admin.levels.index',
+            'icon' => 'fas fa-fw fa-chart-line',
+        ],
+        [
             'text' => 'Cursos por aprobar',
             'route'  => 'admin.courses.index',
             'icon' => 'fas fa-fw fa-share',
