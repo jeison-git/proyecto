@@ -120,7 +120,7 @@ class CourseController extends Controller
 
         $request->validate([
             'title' => 'required',
-         // 'slug' => 'required|unique:courses,slug' .$course->id,            
+         // 'slug' => 'required|unique:courses,slug,' .$course->id,            
             'subtitle' => 'required',
             'description' => 'required',
             'file' => 'image'            
@@ -166,18 +166,13 @@ class CourseController extends Controller
     }
 
     public function status(Course $course){
+        $course->status = 2;
+        $course->save();
 
         if($course->observation){
-
             $course->observation->delete();
-
-        }else{
-            $course->status = 2;
-            $course->save();
         }
-        /*$course->status = 2;
-        $course->save();
-        $course->observation->delete();*/
+        
         return redirect()->route('instructor.courses.edit', $course);
     }
 
