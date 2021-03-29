@@ -71,13 +71,14 @@
                 </ul>
             </section>
             {{--seccion de descripcion del curso--}}
-            <section class="mb-16">
+            <section class="mb-8">
                 <h1 class="font-bold text-3xl">Descripción</h1>
                 <div class="text-gray-900 text-base">
                     {!!$course->description!!}
                 </div>
             </section>
 
+           {{--}} @livewire('courses-reviews', ['course' => $course]) //se deben solucionar los errores que produce esta seccion de reseñas--}}
 
         </div>
 
