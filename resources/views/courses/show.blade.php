@@ -100,10 +100,17 @@
                      
                      @else
 
-                        <form action="{{route('courses.enrolled', $course)}}" method="POST">
-                            @csrf                                               
-                            <button class="btn btn-danger btn-block mt-4" type="submit">Matricularse</button>
-                        </form>                    
+                        @if ($course->price->value == 0)
+                        <p class="text-2xl font-semibold text-gray-500 mt-3 mb-2">{{$course->price->name}}</p>
+                            <form action="{{route('courses.enrolled', $course)}}" method="POST">
+                                @csrf                                               
+                                <button class="btn btn-danger btn-block" type="submit">Matricularse</button>
+                            </form>
+                        @else                        
+                            <p class="text-2xl font-semibold text-gray-500 mt-3 mb-2">US$ {{$course->price->value}}</p>
+                            <a href="{{route('payment.checkout', $course)}}" class="btn btn-danger btn-block">Comprar este curso</a>
+                        @endif
+
                      @endcan 
 
                 </div>
