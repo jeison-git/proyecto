@@ -1,62 +1,87 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+Proyecto
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+_Entorno Virtual de aprendizaje_
 
-## About Laravel
+## Comenzando 🚀
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+_Estas instrucciones te permitirán obtener una copia del proyecto en tu máquina local para propósitos de desarrollo y pruebas._
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Pre-requisitos 📋
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+_Este proyecto se realizo utilizando el framework Laravel-8 y Xampp-7.4. Por que es necesario tener PHP 7.4 (para evitar problemas de dependencias)._
 
-## Learning Laravel
+```
+composer global require laravel/installer 
+```
+```
+https://www.apachefriends.org/download.html 
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Instalación 🔧
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+_Paso a paso para clonar este entorno de desarrollo_
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+_1. Copiar la dirección HTTPS del repositorio, en la opción de clonar:_
 
-### Premium Partners
+```
+https://github.com/jeison-git/proyecto.git
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+_2. Después en la consola de comandos de Git Bash (Windows) o la Terminal CMD posiciónate en la carpeta donde clonarás tu repositorio con el comando cd. Ejecute el comado:_
 
-## Contributing
+```
+git clone https://github.com/jeison-git/proyecto.git
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+_3. En la carpeta del proyecto que acabas de clonar, desde consola  ejecuta el comando: composer install (debe tener instalado el gestor de paquetes Composer).
+Esto descargará e instalará las dependencias utilizadas por el proyecto._
 
-## Code of Conduct
+```
+composer install
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+_4. Lo siguiente es copiar el contenido del archivo .env.example en un nuevo archivo con el nombre .env._
 
-## Security Vulnerabilities
+```
+copy .env.example .env
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+_5. Abrir el archivo .env y cambiar el nombre de la base (DB_DATABASE) a lo que usted tiene, nombre de usuario (DB_USERNAME) y una contraseña (DB_PASSWORD) Campo corresponden a la configuración.
+De forma predeterminada, el nombre de usuario es root y puede dejar el campo de contraseña vacío. (Esto es para Xampp)._
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+_6. Desde consola jecutar el comando:  npm install (debe tener instalado Node.js)._
+
+```
+npm install
+```
+
+_7. Generar APP_KEY, La APP_KEY es una cadena de carácteres generada aleatoriamente por Laravel que utiliza para todas las cookies cifradas, como las cookies de sesión. Para generar la APP_KEY del proyecto ejecuta el siguiente comando:_
+
+```
+ php artisan key:generate
+```
+
+_8. Desde consola jecutar el comando: php artisan migrate (Para crear todas las tablas del proyecto, dentro de la bases de datos que creo y espesifico en el archivo .env)._
+
+```
+php artisan migrate
+```
+
+_9. Ir a localhost y ver el proyecto_
+
+
+## Este proyecto todavia se encuentra en proceso de elaboración. 🖇️
+
+## Construido con 🛠️
+
+_Herramientas que utilize para crear el proyecto_
+
+* [Laravel](https://laravel.com/docs) - El framework web usado.
+* [VisualStudioCode](https://code.visualstudio.com/Download) - Editor de codigo
+* [Composer](https://getcomposer.org/download/) - Usado para gestionar las dependencias.
+* [Xampp](https://www.apachefriends.org/download.html ) - Servicios independientes.
+
+---
+⌨️ Por [jeison-git](https://github.com/jeison-git) 😊
