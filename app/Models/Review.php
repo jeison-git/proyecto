@@ -13,7 +13,7 @@ class Review extends Model
 
     //relacion uno a muchos inversa (reviews muchos comentarios vienen de un usuario)
 
-    public function users(){
+    public function user(){
 
         return $this->belongsTo('App\Models\User');
 

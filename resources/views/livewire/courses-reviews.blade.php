@@ -4,7 +4,7 @@
         @can('enrolled',$course)
          
        <article class="mb-4">  
-           {{--@can('valued', $course)--}}      
+           @can('valued', $course)
                
         <textarea wire:model="comment" class="form-input w-full" rows="3" placeholder="Ingrese una reseña sobre el curso ..."></textarea>
         <div class="flex items-center">
@@ -26,13 +26,30 @@
                     <i class="fas fa-star text-{{$rating >=5 ? 'yellow' : 'gray'}}-300"></i>
                 </li>
             </ul>
-        </div>      
+        </div> 
+
+        @else
+        <!-- Alert Info -->
+            <div class="bg-blue-200 px-6 md:py-4 md:my-4 rounded-md md:text-lg flex items-center mx-auto">
+            <svg viewBox="0 0 24 24"
+                class="text-blue-600 w-5 h-5 sm:w-5 sm:h-5 mr-3"
+                >
+            <path fill="currentColor"
+                d="M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm.25,5a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,12.25,5ZM14.5,18.5h-4a1,1,0,0,1,0-2h.75a.25.25,0,0,0,.25-.25v-4.5a.25.25,0,0,0-.25-.25H10.5a1,1,0,0,1,0-2h1a2,2,0,0,1,2,2v4.75a.25.25,0,0,0,.25.25h.75a1,1,0,1,1,0,2Z"
+                >
+            </path>
+            </svg>
+            <span class="text-blue-800"> Usted ya ha valorado este curso. </span>
+            </div>
+            <!-- End Alert Info -->
+
+        @endcan
 
         </article> 
            
         @endcan
 
-   {{-- error de property no se arreglarlo todavia
+   {{-- error de property no se arreglarlo todavia--}}
         <div class="card">
             <div class="card-body">
                 <p class="text-gray-800 text-xl">{{$course->reviews->count()}} valoraciones</p>
@@ -42,11 +59,11 @@
                 
                 <article class="flex mb-4 text-gray-800">
                         <figure class="mr-4">
-                            <img class="h-12 w-12 object-cover rounded-full shadow-lg" src="{{$review->user->profile_photo_url}}" alt="">
+                            <img class="h-12 w-12 object-cover rounded-full shadow-lg" src="{{$review->user->profile_photo_url ?? null}}" alt="">
                         </figure>
                     <div class=" card flex-1">
                         <div class="card-body bg-gray-100">
-                            <p><b>{{$review->user->name}}</b><i class="fas fa-star text-yellow-300"></i> {{$review->rating}}</p>                    
+                            <p><b>{{$review->user->name ?? null}}</b><i class="fas fa-star text-yellow-300"></i> {{$review->rating}}</p>                    
                             {{$review->comment}}
                         </div>
                     </div>
@@ -55,5 +72,5 @@
                 @endforeach              
 
             </div>
-        </div>--}}
+        </div>
 </section>

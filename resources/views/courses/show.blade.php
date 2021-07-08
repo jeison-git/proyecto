@@ -78,7 +78,7 @@
                 </div>
             </section>
 
-           {{--}} @livewire('courses-reviews', ['course' => $course]) //se deben solucionar los errores que produce esta seccion de reseñas--}}
+           @livewire('courses-reviews', ['course' => $course]) {{--//se deben solucionar los errores que produce esta seccion de reseñas--}}
 
         </div>
 
@@ -88,7 +88,7 @@
                     {{-- targeta para matricularse al curso--}}
                     <div class="flex items-center">
                         <img class="h-12 w-12 object-cover rounded-full shadow-lg" src="{{$course->teacher->profile_photo_url}}" alt="{{$course->teacher->name}}">
-                        <div class="ml-4">
+                         <div class="ml-4">
                             <h1 class="font-fold text-gray-600 text-lg">Prof. {{$course->teacher->name}}</h1>
                             <a  class="text-blue-400 text-sm font-bold" href="">{{'@' . Str::slug($course->teacher->name, '')}}</a>
                         </div>

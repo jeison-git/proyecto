@@ -16,6 +16,7 @@ class CoursesIndex extends Component
 
     public $category_id;
     public $level_id;
+    
 
     public function render()
     {
