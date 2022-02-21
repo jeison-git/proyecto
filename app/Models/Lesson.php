@@ -20,6 +20,11 @@ class Lesson extends Model
 
         return $this->hasOne('App\Models\Description');
     }
+     ///relacion uno a uno 
+     public function quiz(){
+
+        return $this->hasOne('App\Models\Quiz');
+    }
 
     //relacion uno a muchos inversa
 

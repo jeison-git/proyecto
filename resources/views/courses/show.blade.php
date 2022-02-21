@@ -1,33 +1,41 @@
 <x-app-layout>
     {{-- imagen de presentacion y detalles del curso --}}
-    <section class="bg-gray-400 py-12 shadow-lg mb-12">
+    <section class="bg-gray-200 py-12 shadow-lg mb-12">
         <div class="container grid grid-cols-1 lg:grid-cols-2 gap-6">
             <figure>
                 <img class="h-60 w-full object-cover" src="{{Storage::url($course->image->url)}}" alt="">
             </figure>
-            <div class="text-black">
-                <h1 class="text-4xl">{{$course->title}}</h1>
-                <h2 class="text-xl mb-3">{{$course->subtitle}}</h2>
-                <p class="mb-2"><i class="fas fa-chart-line"></i>Nivel: {{$course->level->name}}</p>
-                <p class="mb-2"><i class="fas fa-tag"></i>Categoria: {{$course->category->name}}</p>
-                <p class="mb-2"><i class="fas fa-users"></i>Matriculados: {{$course->students_count}}</p>
-                <p class="mb-2"><i class="fas fa-star"></i>Calificación: {{$course->rating}}</p>
+            <div class="font-semibold text-gray-700 md:text-gray-900">
+
+                <h1 class="text-2xl md:text-4xl">{{$course->title}}</h1>
+                <h2 class="text-2xl md:text-xl mb-3">{{$course->subtitle}}</h2>
+                <p class="mb-2"><i class="fas fa-chart-line"></i> Nivel: {{$course->level->name}}</p>
+                <p class="mb-2"><i class="fas fa-tag"></i> Catedra: {{$course->category->name}}</p>
+                <p class="mb-2"><i class="fas fa-users"></i> Matriculados: {{$course->students_count}}</p>
+                <p class="mb-2"><i class="fas fa-star"></i> Calificación: {{$course->rating}}</p>
+                
             </div>
         </div>
     </section>
+
     {{--- seccion del plan de estudio --}}
     <div class="container grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div class="order-2 lg:col-span-2 lg:order-1">
-            <section class="card mb-12">
-                <div class="card-body">
-                    <h1 class="font-bold text-3xl mb-2">Plan de estudios</h1>
-
-                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
+        <div class="order-2 lg:col-span-2 lg:order-1">          
+        {{--seccion de descripcion del curso--}}
+        <section class="mb-8">
+            <h1 class="font-bold text-3xl">Descripción</h1>
+            <div class="text-gray-800 text-base text-justify">
+                {!!$course->description!!}
+            </div>
+        </section>
+        {{--FIN-DESCRIPCIÖN--}}
+            <section class="mb-8">
+                    <h1 class="font-bold text-3xl mb-2">Objetivos</h1>
+                    <ul class="list-disc list-inside">
                         @foreach ($course->goals as $goal)
-                            <li class="text-gray-800 text-base"><i class="fas fa-check text-gray-700 mr-2"></i>{{$goal->name}}</li>                            
-                        @endforeach
+                            <p class="text-gray-800 text-base ml-4 mb-2">{{$goal->name}}</p>                    
+                        @endforeach 
                     </ul>
-                </div>
             </section>
             {{--seccin de temas--}}
             <section>
@@ -44,14 +52,14 @@
                         
                     @endif>
 
-                        <header class="bg-gray-400 shadow-lg rounded px-4 py-2 cursor-pointer" x-on:click="open= !open">
-                            <h1 class="font-bold text-lg text-black">{{$section->name}}</h1>
+                        <header class="bg-gray-200 shadow-lg rounded px-4 py-2 cursor-pointer" x-on:click="open= !open">
+                            <h1 class="font-bold text-lg text-gray-800"> {{$section->name}} </h1>
                         </header>
                         {{-- seccin de lecciones y barras  grises--}}
                         <div class="card py-2 px-4" x-show="open">
                             <ul class="grid grid-cols-1 gap-2">
                                 @foreach ($section->lessons as $lesson)
-                                    <li class="text-gray-800 text-base"><i class="fas fa-play-circle mr-2 text-gray-600"></i>{{$lesson->name}}</li>
+                                    <li class="text-gray-800 text-base"><i class="fas fa-play-circle mr-2 text-gray-400"></i>{{$lesson->name}}</li>
                                 @endforeach
                             </ul>
                         </div>
@@ -59,24 +67,20 @@
                         </article>
                     
                 @endforeach
-            </section>
-            {{--seccion de requisitos--}}
-            <section class="my-8">
-                <h1 class="font-bold text-3xl">Requisitos</h1>
 
-                <ul class="list-disc list-inside">
-                    @foreach ($course->requirements as $requirement)
-                        <li class="text-gray-900 text-base">{{$requirement->name}}</li>                        
-                    @endforeach
-                </ul>
-            </section>
-            {{--seccion de descripcion del curso--}}
-            <section class="mb-8">
-                <h1 class="font-bold text-3xl">Descripción</h1>
-                <div class="text-gray-900 text-base">
-                    {!!$course->description!!}
-                </div>
-            </section>
+                {{--seccion de requisitos--}}
+                <section class="my-8">
+                    <h1 class="font-bold text-3xl">Requisitos recomendados</h1>
+
+                    <ul class="list-disc list-inside">
+                        @foreach ($course->requirements as $requirement)
+                            <p class="text-gray-800 text-base text-justify"> {{$requirement->name}} </p>                        
+                        @endforeach
+                    </ul>
+
+                </section>
+
+            </section>            
 
            @livewire('courses-reviews', ['course' => $course]) {{--//se deben solucionar los errores que produce esta seccion de reseñas--}}
 

@@ -1,5 +1,5 @@
 <section> {{-- falta solucionar muchos errores en esta seccion--}}
-       <h1 class="font-bold text-3xl text-gray-900 my-4">Valoraciones</h1>
+       <h1 class="font-bold text-3xl text-gray-800 mb-4">Valoraciones</h1>
 
         @can('enrolled',$course)
          
@@ -50,24 +50,23 @@
         @endcan
 
    {{-- error de property no se arreglarlo todavia--}}
-        <div class="card">
+        <div class="card ">
             <div class="card-body">
-                <p class="text-gray-800 text-xl">{{$course->reviews->count()}} valoraciones</p>
-                
+                <p class="text-gray-900 text-xl mb-4">{{$course->reviews->count()}} valoraciones</p>                
                 
                 @foreach ($course->reviews as $review)                    
                 
-                <article class="flex mb-4 text-gray-800">
-                        <figure class="mr-4">
-                            <img class="h-12 w-12 object-cover rounded-full shadow-lg" src="{{$review->user->profile_photo_url ?? null}}" alt="">
-                        </figure>
-                    <div class=" card flex-1">
-                        <div class="card-body bg-gray-100">
-                            <p><b>{{$review->user->name ?? null}}</b><i class="fas fa-star text-yellow-300"></i> {{$review->rating}}</p>                    
-                            {{$review->comment}}
+                    <article class="flex mb-4 text-gray-800">
+                            <figure class="mr-4">
+                                <img class="h-12 w-12 object-cover rounded-full shadow-lg" src="{{$review->user->profile_photo_url ?? null}}" alt="">
+                            </figure>
+                        <div class=" card flex-1">
+                            <div class="card-body bg-gray-200">
+                                <p><b>{{$review->user->name ?? null}}</b><i class="fas fa-star text-yellow-300"></i> {{$review->rating}}</p>                    
+                                {{$review->comment}}
+                            </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
 
                 @endforeach              
 

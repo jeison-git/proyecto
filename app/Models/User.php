@@ -70,7 +70,11 @@ class User extends Authenticatable
 
     }
 
-    //relacion uno a muchos 
+    //relacion uno a muchos    
+
+    public function results() {//cuestionario
+        return $this->hasMany('App\Models\Result');
+    }
 
     public function courses_dictated(){  //(un profesor  tiene muchos cursos)
 

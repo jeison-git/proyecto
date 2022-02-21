@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Instructor;
 
 use App\Models\Lesson;
-use Livewire\Component;
+use Livewire\Component; 
 
 class LessonDescription extends Component
 {

@@ -48,7 +48,7 @@ class CoursesLesson extends Component
             'name' => $this->name,
             'platform_id' => $this->platform_id,
             'url' => $this->url,
-            'section_id' => $this->section->id
+            'section_id' => $this->section->id 
         ]);
 
         $this->reset(['name', 'platform_id', 'url']);

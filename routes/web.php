@@ -3,6 +3,7 @@
 use App\Http\Controllers\CourseController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TestController;
 use App\Http\Livewire\CourseStatus;
 
 
@@ -28,3 +29,9 @@ Route::get('cursos/{course}', [ CourseController::class, 'show'])->name('courses
 Route::post('cursos/{course}/enrolled', [CourseController::class, 'enrolled'])->middleware('auth')->name('courses.enrolled');
 
 Route::get('course-status/{course}', CourseStatus::class, 'status')->name('courses.status')->middleware('auth');
+
+//Test
+//Route::get('course-test/{id}', [TestController::class, 'quiz'])->name('quiz.join');
+
+//Route::post('result/{id}/result', TestController::class, 'store')->name('quiz.store');
+Route::post('test/{id}/result', [TestController::class, 'result'])->middleware('auth')->name('quiz.result');

@@ -16,7 +16,7 @@ class CoursesReviews extends Component
 
     public function render()
     {
-        $course = Course::find($this->course_id);
+        $course = Course::orderBy('created_at', 'desc')->find($this->course_id);//ojo revisar luego
 
         return view('livewire.courses-reviews', compact('course'));
     }
