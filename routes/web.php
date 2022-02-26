@@ -3,6 +3,7 @@
 use App\Http\Controllers\CourseController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Publication\PublicationController;
 use App\Http\Controllers\TestController;
 use App\Http\Livewire\CourseStatus;
 
@@ -17,7 +18,7 @@ use App\Http\Livewire\CourseStatus;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Rutas Cursos
 Route::get('/', HomeController::class)->name('home');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
@@ -30,8 +31,17 @@ Route::post('cursos/{course}/enrolled', [CourseController::class, 'enrolled'])->
 
 Route::get('course-status/{course}', CourseStatus::class, 'status')->name('courses.status')->middleware('auth');
 
-//Test
+//Rutas Test
 //Route::get('course-test/{id}', [TestController::class, 'quiz'])->name('quiz.join');
 
 //Route::post('result/{id}/result', TestController::class, 'store')->name('quiz.store');
 Route::post('test/{id}/result', [TestController::class, 'result'])->middleware('auth')->name('quiz.result');
+
+//Rutas Repositorio Publicaciones
+Route::get('publications', [PublicationController::class, 'index'])->name('publications.index');
+
+Route::get('publications/{publication}', [PublicationController::class, 'show'])->name('publications.show');
+
+Route::post('publications/{publication}/enrolled', [PublicationController::class, 'enrolled'])->middleware('auth')->name('publications.enrolled');
+
+/* Route::get('publication-status/{publication}', PublicationStatus::class, 'status')->name('publications.status')->middleware('auth'); */
