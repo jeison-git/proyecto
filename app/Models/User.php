@@ -70,7 +70,7 @@ class User extends Authenticatable
 
     }
 
-    //relacion uno a muchos    
+    //relacion uno a muchos
 
     public function results() {//cuestionario
         return $this->hasMany('App\Models\Result');
@@ -79,22 +79,29 @@ class User extends Authenticatable
     public function courses_dictated(){  //(un profesor  tiene muchos cursos)
 
         return $this->hasMany('App\Models\Course');
-        
+
     }
-    
+
+    //repositorio (ojo con las policies)
+    public function publications_dictated(){  //(un admin tiene muchos publicaciones)
+
+        return $this->hasMany('App\Models\Publication');
+
+    }
+
     public function reviews(){  // (reviews un usuario puede comentar muchas veces)
 
         return $this->hasMany('App\Models\Review');
 
     }
 
-    public function comments(){  
+    public function comments(){
 
         return $this->hasMany('App\Models\Comment');
 
     }
 
-    public function reactions(){  
+    public function reactions(){
 
         return $this->hasMany('App\Models\Reaction');
 
@@ -105,6 +112,14 @@ class User extends Authenticatable
     public function courses_enrolled(){
 
         return $this->belongsToMany('App\Models\Course');
+
+    }
+
+    //relacion muchos a muchos (los usuarios tienen muchos libros, ojo aca policies)
+
+    public function publications_enrolled(){
+
+        return $this->belongsToMany('App\Models\Publication');
 
     }
 
