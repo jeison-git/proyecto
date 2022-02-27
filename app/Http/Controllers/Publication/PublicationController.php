@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Publication;
 use App\Http\Controllers\Controller;
 use App\Models\Publication;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PublicationController extends Controller
 {
@@ -36,7 +37,7 @@ class PublicationController extends Controller
         return redirect()->route('publications.show', $publication);
     }
 
-    public function download(){
-        return response()->download(storage_path('app/' . $this->publication->resource->url));
+    public function download(){/* ojo aqui */
+        return response()->download(Storage::copy('app/' . $this->publication->resource->url));
     }
 }

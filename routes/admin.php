@@ -10,6 +10,11 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\LevelController;
 use App\Http\Controllers\Admin\PriceController;
 
+use App\Http\Controllers\Admin\LanguageController;
+use App\Http\Controllers\Admin\DateController;
+use App\Http\Controllers\Admin\PublicationController;
+use App\Http\Controllers\Admin\CategoryPublicationController;
+
 Route::get('', [HomeController::class, 'index'])->middleware('can:Ver dashboard')->name('home');
 
 Route::resource('roles', RoleController::class)->names('roles');
@@ -31,3 +36,21 @@ Route::post('courses/{course}/approved', [CourseController::class, 'approved'])-
 Route::get('courses/{course}/observation', [CourseController::class, 'observation'])->name('courses.observation');
 
 Route::post('courses/{course}/reject', [CourseController::class, 'reject'])->name('courses.reject');
+
+///rutas publicaciones
+
+Route::resource('categorypublications', CategoryPublicationController::class)->names('categorypublications');
+
+Route::resource('languages', LanguageController::class)->names('languages');
+
+Route::resource('dates', DateController::class)->names('dates');
+
+Route::get('publications', [PublicationController::class, 'index'])->name('publications.index');
+
+Route::get('publications/{publication}', [PublicationController::class, 'show'])->name('publications.show');
+
+Route::post('publications/{publication}/approved', [PublicationController::class, 'approved'])->name('publications.approved');
+
+Route::get('publications/{publication}/observation', [PublicationController::class, 'observation'])->name('publications.observation');
+
+Route::post('publications/{publication}/reject', [PublicationController::class, 'reject'])->name('publications.reject');

@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Gestionar',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -239,21 +239,21 @@ return [
             'route'   => 'admin.home',
             'icon'    => 'fas fa-fw fa-home',
             'can'     => 'Ver dashboard'
-            
+
         ],
         [
             'text'    => 'Lista de roles',
             'route'   => 'admin.roles.index',
             'icon'    => 'fas fa-fw fa-users-cog',
             'can'     => 'Listar role'  ,
-            'active'  =>  ['admin/roles*'],            
+            'active'  =>  ['admin/roles*'],
         ],
         [
             'text'    => 'Usuarios',
             'route'   => 'admin.users.index',
             'icon'    => 'fas fa-fw fa-users',
             'can'     => 'Leer usuarios'  ,
-            'active'  =>  ['admin/users*'],            
+            'active'  =>  ['admin/users*'],
         ],
         ['header' => 'OPCIONES DE CURSOS'],
         [
@@ -274,6 +274,27 @@ return [
         [
             'text' => 'Cursos por aprobar',
             'route'  => 'admin.courses.index',
+            'icon' => 'fas fa-fw fa-share',
+        ],
+        ['header' => 'OPCIONES DE PUBLICACIONES'],
+        [
+            'text' => 'Categorías',
+            'route'  => 'admin.categorypublications.index',
+            'icon' => 'fas fa-fw fa-cogs',
+        ],
+        [
+            'text' => 'Idiomas',
+            'route'  => 'admin.languages.index',
+            'icon' => 'fas fa-fw fa-language',
+        ],
+        [
+            'text' => 'Año de publicación',
+            'route'  => 'admin.dates.index',
+            'icon' => 'fab fa-fw fas fa-calendar',
+        ],
+        [
+            'text' => 'Publicaciones por aprobar',
+            'route'  => 'admin.publications.index',
             'icon' => 'fas fa-fw fa-share',
         ],
 

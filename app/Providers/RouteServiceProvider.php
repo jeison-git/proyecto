@@ -16,8 +16,9 @@ class RouteServiceProvider extends ServiceProvider
      * This is used by Laravel authentication to redirect users after login.
      *
      * @var string
-     *///public const HOME = '/dashboard';
-    public const HOME = '/';
+     */ //public const HOME = '/dashboard';
+    /* public const HOME = '/'; */
+    public const HOME = '/dashboard';
 
     /**
      * The controller namespace for the application.
@@ -52,19 +53,24 @@ class RouteServiceProvider extends ServiceProvider
                 ->prefix('admin')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/admin.php'));
-                
-            Route::middleware('web', 'auth')
-            ->name('instructor.')
-            ->prefix('instructor')
-            ->namespace($this->namespace)
-            ->group(base_path('routes/instructor.php'));
 
             Route::middleware('web', 'auth')
-            ->name('payment.')
-            ->prefix('payment')
-            ->namespace($this->namespace)
-            ->group(base_path('routes/payment.php'));
+                ->name('instructor.')
+                ->prefix('instructor')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/instructor.php'));
 
+            Route::middleware('web', 'auth')
+                ->name('editor.')
+                ->prefix('editor')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/editor.php'));
+
+            Route::middleware('web', 'auth')
+                ->name('payment.')
+                ->prefix('payment')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/payment.php'));
         });
     }
 

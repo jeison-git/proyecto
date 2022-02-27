@@ -15,7 +15,16 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Storage::deleteDirectory('cursos');
+
+        Storage::deleteDirectory('resources');
+
+        Storage::deleteDirectory('publications');
+
         Storage::makeDirectory('cursos');
+
+        Storage::makeDirectory('resources');
+
+        Storage::makeDirectory('publications');
 
         // \App\Models\User::factory(10)->create();
 

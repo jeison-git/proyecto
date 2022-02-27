@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Publication;
+use App\Models\Image;
 
 class PublicationSeeder extends Seeder
 {
@@ -14,18 +15,18 @@ class PublicationSeeder extends Seeder
      */
     public function run()
     {
-        Publication::factory(20)->create();
+       $publications = Publication::factory(20)->create();
 
-        /* foreach($publications as $publication){
+         foreach($publications as $publication){
 
-            Review::factory(5)->create([
+            /* Review::factory(5)->create([
                 'publication_id' => $publication->id
-            ]);
+            ]); */
 
-            Image::factory(1)->create([
+            Publication::factory(1)->create([
                     'imageable_id' => $publication->id,
                     'imageable_type' => 'App\Models\Publication'
                 ]);
-    } */
+    }
     }
 }

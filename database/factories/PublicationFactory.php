@@ -40,6 +40,9 @@ class PublicationFactory extends Factory
             'language_id' => Language::all()->random()->id,
             'date_id'     => Date::all()->random()->id,
 
+            'url' => 'publications/' . $this->faker->image('public/storage/publications', 600, 400, null, false),
+
+
         ];
     }
 }

@@ -1,7 +1,7 @@
 @php
     $nav_links = [
         [
-            'name'   => 'Home',
+            'name'   => 'Inicio',
             'route'  => route('home'),
             'active' => request()->routeIs('home')
         ],
@@ -10,7 +10,12 @@
             'route'  => route('courses.index'),
             'active' => request()->routeIs('courses.*')
         ],
-       
+        [
+            'name'   => 'Repositorio',
+            'route'  => route('publications.index'),
+            'active' => request()->routeIs('publications.*')
+        ],
+
     ];
 
 @endphp
@@ -28,7 +33,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    @foreach ($nav_links as $nav_link)                    
+                    @foreach ($nav_links as $nav_link)
                        <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
                         {{ $nav_link['name'] }}
                        </x-jet-nav-link>
@@ -38,9 +43,9 @@
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <!-- Teams Dropdown -->
-               
-                @auth                    
-                
+
+                @auth
+
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                     <div class="ml-3 relative">
                         <x-jet-dropdown align="right" width="60">
@@ -88,13 +93,13 @@
                             </x-slot>
                         </x-jet-dropdown>
                     </div>
-                @endif 
-                
+                @endif
+
                 @endauth
                 <!-- Settings Dropdown -->
                 <div class="ml-3 relative">
                     @auth
-                   
+
                     <x-jet-dropdown align="right" width="48">
                         <x-slot name="trigger">
 
@@ -126,20 +131,24 @@
                                 {{ __('Perfil') }}
                             </x-jet-dropdown-link>
 
+                            <x-jet-dropdown-link href="{{ route('editor.publications.index') }}">
+                                {{ __('Publicar En Repositorio') }}
+                            </x-jet-dropdown-link>
+
                             @can('Leer cursos')
-                            
+
                                 <x-jet-dropdown-link href="{{ route('instructor.courses.index') }}">
                                     {{ __('Instructor') }}
                                 </x-jet-dropdown-link>
-                                
+
                             @endcan
 
                             @can('Ver dashboard')
-                            
+
                             <x-jet-dropdown-link href="{{ route('admin.home') }}">
                                 {{ __('Administrador') }}
                             </x-jet-dropdown-link>
-                            
+
                             @endcan
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -165,7 +174,7 @@
 
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
-                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a> 
+                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
                     @endauth
                 </div>
             </div>
@@ -185,8 +194,8 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            @foreach ($nav_links as $nav_link)              
-           
+            @foreach ($nav_links as $nav_link)
+
             <x-jet-responsive-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
                 {{$nav_link['name']}}
             </x-jet-responsive-nav-link>
@@ -195,8 +204,8 @@
         </div>
 
         <!-- Responsive Settings Options -->
-        @auth            
-        
+        @auth
+
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="flex items-center px-4">
                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
@@ -214,23 +223,23 @@
             <div class="mt-3 space-y-1">
                 <!-- Account Management -->
                 <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                    {{ __('Perfil') }}                    
+                    {{ __('Perfil') }}
                 </x-jet-responsive-nav-link>
 
-                @can('Leer cursos')                 
-                
+                @can('Leer cursos')
+
                     <x-jet-responsive-nav-link href="{{ route('instructor.courses.index') }}" :active="request()->routeIs('instructor.courses.index')">
                         {{ __('Instructor') }}
                     </x-jet-responsive-nav-link>
 
-                @endcan 
-                
+                @endcan
+
                 @can('Ver dashboard')
-                            
+
                             <x-jet-dropdown-link href="{{ route('admin.home') }}">
                                 {{ __('Administrador') }}
                             </x-jet-dropdown-link>
-                            
+
                         @endcan
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -281,11 +290,16 @@
                     @endforeach
                 @endif
             </div>
-        
-        
+
+
         </div>
         @else
         <div class="py-1 border-t border-gray-200">
+
+            <x-jet-responsive-nav-link href="{{ route('editor.publications.index') }}" :active="request()->routeIs('editor.publications.index')">
+                {{ __('Publicar En Repositorio') }}
+            </x-jet-responsive-nav-link>
+
             <x-jet-responsive-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
                 Login
             </x-jet-responsive-nav-link>
