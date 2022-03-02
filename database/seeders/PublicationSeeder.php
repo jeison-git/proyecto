@@ -15,18 +15,14 @@ class PublicationSeeder extends Seeder
      */
     public function run()
     {
-       $publications = Publication::factory(20)->create();
+       Publication::factory(20)->create();
 
-         foreach($publications as $publication){
-
-            /* Review::factory(5)->create([
-                'publication_id' => $publication->id
-            ]); */
+        /* foreach ($publications as $publication) {
 
             Publication::factory(1)->create([
-                    'imageable_id' => $publication->id,
-                    'imageable_type' => 'App\Models\Publication'
-                ]);
-    }
+                'imageable_id' => $publication->id,
+                'imageable_type' => 'App\Models\Publication'
+            ]);
+        } */
     }
 }

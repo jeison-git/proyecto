@@ -15,12 +15,12 @@ class CreateQuizzesTable extends Migration
     {
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('lesson_id');
 
-            $table->string('name');
+            $table->string('title');
             $table->text('description')->nullable();
-            
-            $table->foreign('lesson_id')->references('id')->on('lessons')->onDelete('cascade');
+            $table->string('slug');
+            $table->enum('status', ['PUBLICADO', 'BORRADOR', 'REVISION'])->default('BORRADOR');
+            $table->timestamp('finished_at')->nullable();
 
             $table->timestamps();
         });

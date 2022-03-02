@@ -28,6 +28,7 @@
 
     {{-- FlexSlider --}}
     <script src="{{ asset('vendor/sleder/jquery.flexslider-min.js') }}"></script>
+
 </head>
 
 <body class="font-sans antialiased">

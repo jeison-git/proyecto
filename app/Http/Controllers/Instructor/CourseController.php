@@ -123,7 +123,7 @@ class CourseController extends Controller
             // 'slug'        => 'required|unique:courses,slug,' .$course->id,
             'subtitle'    => 'required',
             'description' => 'required',
-            'file'        => 'required|image|max:2048'
+            'file'        => 'nullable|image|max:2048'
         ]);
 
         $course->update($request->all());

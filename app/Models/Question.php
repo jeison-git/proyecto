@@ -10,7 +10,7 @@ class Question extends Model
     use HasFactory;
 
     protected $guarded  = ['id'];
-    /*protected $appends  = ['true_percent'];*/
+    protected $appends  = ['true_percent'];
 
     //relacion uno a muchos inversa
     public function quizzes(){
@@ -25,10 +25,10 @@ class Question extends Model
         return $this->hasMany('App\Models\Answer');
     }
 
-    /*public function getTruePercentAttribute() {
+    public function getTruePercentAttribute() {
         $answer_count = $this->answers()->count();
         $true_answer  = $this->answers()->where('answer', $this->correct_answer)->count();
 
         return round((100 / $answer_count) * $true_answer);
-    }*/
+    }
 }

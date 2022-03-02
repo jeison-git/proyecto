@@ -5,24 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Quiz extends Model
 {
     use HasFactory;
 
     protected $guarded  = ['id'];
-    //protected $dates    = ['finished_at'];
+    protected $dates    = ['finished_at'];
     protected $appends  = ['details', 'my_rank'];
-    
+
     //relacion uno a uno inversa
     public function lesson(){
         return $this->belongsTo('App\Models\Lesson');
 
-    } 
+    }
 
-    /*public function getFinishedAtAttributes($date) {
+    public function getFinishedAtAttributes($date) {
         return $date ? Carbon::parse($date) : null;
-    }*/
+    }
 
     public function questions() {
         return $this->hasMany('App\Models\Question');
@@ -46,7 +47,7 @@ class Quiz extends Model
 
         return null;
     }
-    
+
     public function topTenUser() {
         return $this->results()->orderByDesc('point')->take(10);
     }
@@ -60,6 +61,20 @@ class Quiz extends Model
                 return $rank;
             }
         }
+    }
+
+    /**
+    * Return the sluggable configuration array for this model.
+    *
+    * @return array
+    */
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [ //slug => databse table - column name
+                'source' => 'title' //title => column that will slug
+            ]
+        ];
     }
 
 }

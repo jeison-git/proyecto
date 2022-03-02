@@ -297,6 +297,12 @@ return [
             'route'  => 'admin.publications.index',
             'icon' => 'fas fa-fw fa-share',
         ],
+        ['header' => 'OPCIONES DE CUESTIONARIOS O TRIVIAS'],
+        [
+            'text' => 'Trivia/Cuestionario',
+            'route'  => 'admin.trivia.quizzes.index',
+            'icon' => 'fab fa-fw fas fa-question-circle',
+        ],
 
     ],
     /*

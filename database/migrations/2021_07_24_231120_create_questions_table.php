@@ -15,16 +15,17 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            
+
             $table->unsignedBigInteger('quiz_id');
 
-            $table->text('name');
+            $table->text('question');
+            $table->text('image')->nullable();
             $table->text('answer_1');
             $table->text('answer_2');
             $table->text('answer_3');
             $table->text('answer_4');
-            $table->enum('correct_answer', ['answer_1', 'answer_2', 'answer_3', 'answer_4']);            
-            
+            $table->enum('correct_answer', ['answer_1', 'answer_2', 'answer_3', 'answer_4']);
+
             $table->foreign('quiz_id')->references('id')->on('quizzes')->onDelete('cascade');
 
             $table->timestamps();

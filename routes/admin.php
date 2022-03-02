@@ -15,6 +15,9 @@ use App\Http\Controllers\Admin\DateController;
 use App\Http\Controllers\Admin\PublicationController;
 use App\Http\Controllers\Admin\CategoryPublicationController;
 
+use App\Http\Controllers\Admin\QuestionController;
+use App\Http\Controllers\Admin\QuizController;
+
 Route::get('', [HomeController::class, 'index'])->middleware('can:Ver dashboard')->name('home');
 
 Route::resource('roles', RoleController::class)->names('roles');
@@ -54,3 +57,14 @@ Route::post('publications/{publication}/approved', [PublicationController::class
 Route::get('publications/{publication}/observation', [PublicationController::class, 'observation'])->name('publications.observation');
 
 Route::post('publications/{publication}/reject', [PublicationController::class, 'reject'])->name('publications.reject');
+
+//Rutas Cuestionarios o trivias
+Route::resource('trivia', QuizController::class)->names('trivia.quizzes');
+
+//Route::get('trivia/{id}', [QuizController::class, 'destroy'])->whereNumber('id')->name('trivia.quizzes.destroy');
+
+Route::get('trivia/{id}/details', [QuizController::class, 'show'])->whereNumber('id')->name('trivia.quizzes.details');
+
+//Route::get('trivia/{quiz_id}/questions/{id}', [QuestionController::class, 'destroy'])->whereNumber('id')->name('trivia.questions.destroy');
+
+Route::resource('trivia/{quiz_id}/questions', QuestionController::class)->names('trivia.questions');
