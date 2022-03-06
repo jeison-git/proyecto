@@ -71,9 +71,9 @@
                             @livewire('instructor.lesson-resources', ['lesson' => $item], key('lesson-resources' . $item->id))
                         </div>
 
-                        <div>
+                        {{-- <div>
                             @livewire('instructor.lesson-quizzes', ['lesson' => $item], key('lesson-quizzes' . $item->id))
-                        </div>
+                        </div> --}}
 
                     </div>
                 @endif

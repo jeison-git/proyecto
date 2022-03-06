@@ -45,7 +45,7 @@ class CoursesAudiences extends Component
     }
 
     public function update(){
-        $this->validate();        
+        $this->validate();
         $this->audience->save();
         $this->audience = new Audience();
 

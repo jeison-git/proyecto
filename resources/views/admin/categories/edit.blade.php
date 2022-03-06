@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Categories')
+@section('title', 'Editar Asignatura')
 
 @section('content_header')
-    <h1>Actualizar detalles de categorias</h1>
+    <h1>Actualizar detalles de la Asignatura</h1>
 @stop
 
 @section('content')
@@ -22,11 +22,11 @@
                 {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre de la categoria ...']) !!}
 
                 @error('name')
-                <span class="text-danger text-sm">{{$message}}</span>                        
+                <span class="text-danger text-sm">{{$message}}</span>
                 @enderror
 
             </div>
-        {!! Form::submit('Actualizar categoría', ['class' => 'btn btn-primary btn-sm']) !!}    
+        {!! Form::submit('Actualizar categoría', ['class' => 'btn btn-primary btn-sm']) !!}
         {!! Form::close() !!}
     </div>
 </div>

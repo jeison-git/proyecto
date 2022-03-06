@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Admin-Trivia')
+@section('title', 'Crear-Trivia')
 
 @section('content_header')
     <h1>AGREGAR TRIVIA O CUESTIONARIO</h1>
@@ -28,7 +28,7 @@
                     </div>
                     <div class="form-group">
                         <input id="isFinished" type="checkbox" @if (old('finished_at')) checked @endif>
-                        <label>¿Quieres un límite de tiempo para responder las trivialidades?</label>
+                        <label>¿Quieres un límite de tiempo para responder el cuestionario o trivia?</label>
                     </div>
                     <div @if (!old('finished_at')) style="display: none;" @endif id="haveFinished"
                         class="form-group">

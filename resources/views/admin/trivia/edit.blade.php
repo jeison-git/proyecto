@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Admin-Trivia')
+@section('title', 'Editar-Trivia')
 
 @section('content_header')
     <h1>ACTUALIZAR LOS CUESTIONARIOS</h1>
@@ -13,6 +13,12 @@
         </div>
     @endif
     <div class="card">
+        <h5 class="card-title p-2">
+            <a href="{{ url()->previous() }}" class="btn btn-sm btn-secondary">
+                <i class="fa fa-arrow-left"></i>
+                Regresar
+            </a>
+        </h5>
         <div class="card-body">
             <h5 class="card-title">
                 <form method="POST" action="{{ route('admin.trivia.quizzes.update', $quiz->id) }}">
@@ -37,7 +43,7 @@
                     </div>
                     <div class="form-group">
                         <input id="isFinished" type="checkbox" @if ($quiz->finished_at) checked @endif>
-                        <label>¿Quieres un límite de tiempo para responder las trivialidades?</label>
+                        <label>¿Quieres un límite de tiempo para responder el cuestionario?</label>
                     </div>
                     <div @if (!$quiz->finished_at) style="display: none;" @endif id="haveFinished"
                         class="form-group">

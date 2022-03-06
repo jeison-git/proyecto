@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Categories')
+@section('title', 'Crear Asignatura')
 
 @section('content_header')
-    <h1>Crear nueva Categoria</h1>
+    <h1>Añadir Asignatura</h1>
 @stop
 
 @section('content')
@@ -15,11 +15,11 @@
                     {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre de la categoria ...']) !!}
 
                     @error('name')
-                    <span class="text-danger text-sm">{{$message}}</span>                        
+                    <span class="text-danger text-sm">{{$message}}</span>
                     @enderror
 
                 </div>
-            {!! Form::submit('crear categoría', ['class' => 'btn btn-primary btn-sm']) !!}    
+            {!! Form::submit('Añadir Asignatura', ['class' => 'btn btn-primary btn-sm']) !!}
             {!! Form::close() !!}
         </div>
     </div>

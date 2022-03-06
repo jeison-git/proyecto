@@ -7,7 +7,7 @@
 
             <h1
                 class="cursor-default w-auto h-auto text-center font-extrabold md:text-5xl bg-clip-text text-gray-700 hover:text-transparent bg-gradient-to-r from-blue-700 via-blue-500 to-blue-600">
-                ¡Bienvenido a Cybernetic UNESR!
+                ¡Bienvenido a CyberUNESR!
             </h1>
             <p class="font-semibold text-center text-gray-600 dark:text-gray-300">cursos complementarios y mucho más</p>
 
@@ -45,7 +45,8 @@
     <section class="container px-6 py-4 mx-auto cursor-default ">
         <div class="grid gap-6 mb-8 md:grid-cols-3">
             <!-- Card 1 -->
-            <div class="flex items-center p-4 bg-white border-2 border-gray-200 rounded-lg dark:bg-gray-800 transition-all duration-500 transform bg-white shadow-xl hover:shadow-2xl hover:scale-105">
+            <a href="{{route('trivia.questions')}}">
+            <div class="flex items-center p-4 bg-white border-2 border-gray-200 rounded-lg dark:bg-gray-800 transition-all duration-500 transform shadow-xl hover:shadow-2xl hover:scale-105">
                 <div class="p-3 mr-0 rounded-full">
                     <img src="https://img.icons8.com/external-smashingstocks-thin-outline-color-smashing-stocks/67/000000/external-quiz-education-smashingstocks-thin-outline-color-smashing-stocks.png"/>
                 </div>
@@ -54,9 +55,10 @@
                     <p class="text-sm text-center text-gray-800">¿Cuanto sabes de informática?, Pon a prueba tus conocimientos.</p>
                 </div>
             </div>
+        </a>
             <!-- Card 2 -->
             <a href="{{route('courses.index')}}">
-            <div class="flex items-center p-4 bg-white border-2 border-gray-200 rounded-lg dark:bg-gray-800 transition-all duration-500 transform bg-white shadow-xl hover:shadow-2xl hover:scale-105">
+            <div class="flex items-center p-4 bg-white border-2 border-gray-200 rounded-lg dark:bg-gray-800 transition-all duration-500 transform shadow-xl hover:shadow-2xl hover:scale-105">
                 <div class="p-3 mr-0 rounded-full">
                     <img src="https://img.icons8.com/external-bright-fill-juicy-fish/42/000000/external-course-education-bright-fill-bright-fill-juicy-fish.png"/>
                 </div>

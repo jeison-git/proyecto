@@ -18,6 +18,10 @@ use App\Http\Controllers\Admin\CategoryPublicationController;
 use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\Admin\QuizController;
 
+use App\Http\Livewire\Admin\ShowContacts;
+use App\Http\Controllers\ContactController;
+use App\Http\Livewire\Admin\AnswerContact;
+
 Route::get('', [HomeController::class, 'index'])->middleware('can:Ver dashboard')->name('home');
 
 Route::resource('roles', RoleController::class)->names('roles');
@@ -54,7 +58,7 @@ Route::get('publications/{publication}', [PublicationController::class, 'show'])
 
 Route::post('publications/{publication}/approved', [PublicationController::class, 'approved'])->name('publications.approved');
 
-Route::get('publications/{publication}/observation', [PublicationController::class, 'observation'])->name('publications.observation');
+Route::get('publications/{publication}/check', [PublicationController::class, 'check'])->name('publications.check');
 
 Route::post('publications/{publication}/reject', [PublicationController::class, 'reject'])->name('publications.reject');
 
@@ -68,3 +72,12 @@ Route::get('trivia/{id}/details', [QuizController::class, 'show'])->whereNumber(
 //Route::get('trivia/{quiz_id}/questions/{id}', [QuestionController::class, 'destroy'])->whereNumber('id')->name('trivia.questions.destroy');
 
 Route::resource('trivia/{quiz_id}/questions', QuestionController::class)->names('trivia.questions');
+
+//Rutas del centro de ayuda contactanos
+Route::get('contacts', ShowContacts::class)->middleware('can:Ver dashboard')->name('contacts.index');
+
+Route::get('contacts/{contact}/answer', AnswerContact::class)->middleware('can:Ver dashboard')->name('contacts.answer');
+
+Route::get('contacts/{contact}/message', [ContactController::class, 'message'])->middleware('can:Ver dashboard')->name('contacts.message');
+
+Route::post('contacts/{contact}/answered', [ContactController::class, 'answer'])->middleware('can:Ver dashboard')->name('contacts.answered');

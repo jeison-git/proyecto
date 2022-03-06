@@ -1,5 +1,16 @@
 <x-trivia-layout>
     <x-slot name="header">
+        <div class="container flex items-center justify-start mb-4">
+
+            <a href="{{ route('trivia.questions')}}" class="mr-2">
+                <img src="https://img.icons8.com/dusk/25/000000/circled-left-2.png" />
+            </a>
+            <a href="{{ url()->previous() }}" class="mr-2">
+                <img src="https://img.icons8.com/dusk/25/000000/circled-right-2.png" />
+            </a>
+
+        </div>
+
         '{{ $quiz->title }}' Detalles de la trivia
     </x-slot>
     <div class="container my-16 card">
@@ -16,13 +27,13 @@
                     </div>
                     @if ($quiz->myResult)
                         <a href="{{ route('quiz.join', $quiz->slug) }}"
-                            class="mt-3 card-link btn btn-info btn-sm btn-block">Ver respuestas</a>
+                            class="mt-3 card-link btn btn-primary btn-sm btn-block">Ver respuestas</a>
                     @elseif($quiz->finished_at > now())
                         <a href="{{ route('quiz.join', $quiz->slug) }}"
-                            class="mt-3 card-link btn btn-info btn-sm btn-block">Prueba caducada</a>
+                            class="mt-3 card-link btn btn-primary btn-sm btn-block">Prueba caducada</a>
                     @else
                         <a href="{{ route('quiz.join', $quiz->slug) }}"
-                            class="mt-3 card-link btn btn-info btn-sm btn-block">Iniciar la trivia</a>
+                            class="mt-3 card-link btn btn-primary btn-sm btn-block">Iniciar la trivia</a>
                     @endif
                 </div>
                 <div class="col-md-4 div-sm-12">
@@ -32,18 +43,18 @@
                             <ul class="mt-3 list-group">
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                     Cantidad de preguntas
-                                    <span class="badge badge-info badge-pill">{{ $quiz->questions->count() }}</span>
+                                    <span class="badge badge-primary badge-pill">{{ $quiz->questions->count() }}</span>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                     Fecha de vencimiento de la trivia
                                     <span
-                                        class="badge badge-info badge-pill">{{ $quiz->finished_at ? $quiz->finished_at->diffForHumans() : 'No time limit' }}</span>
+                                        class="badge badge-primary badge-pill">{{ $quiz->finished_at ? $quiz->finished_at->diffForHumans() : 'No time limit' }}</span>
                                 </li>
                                 @if ($quiz->myResult)
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Numero de participantes
                                         <span
-                                            class="badge badge-info badge-pill">{{ $quiz->details['join_count'] }}</span>
+                                            class="badge badge-primary badge-pill">{{ $quiz->details['join_count'] }}</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Puntuación media
@@ -86,7 +97,7 @@
                                 <h5 class="card-title">Top 10</h5>
                                 <ul class="list-group">
                                     @foreach ($quiz->topTenUser as $result)
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <li class="list-group-item d-flex flex justify-between items-center">
                                             <strong>{{ $loop->iteration }}.</strong>
                                             <img src="{{ $result->user->profile_photo_url }}"
                                                 class="w-10 h-10 rounded-full">

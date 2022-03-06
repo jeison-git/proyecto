@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-trivia-layout>
 
     <x-slot name="header">
         Questions for quiz '{{ $quiz->title }}'
@@ -22,51 +22,53 @@
                     Regresar a trivias
                 </a>
             </h5>
-            <table class="table table-bordered table-sm mt-4">
-                <thead>
-                    <tr class="text-center">
-                        <th scope="col">Preguntas</th>
-                        <th scope="col">Imagen</th>
-                        <th scope="col">1. Respuesta</th>
-                        <th scope="col">2. Respuesta</th>
-                        <th scope="col">3. Respuesta</th>
-                        <th scope="col">4. Respuesta</th>
-                        <th scope="col">Respuesta correcta</th>
-                        <th scope="col">Operaciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($quiz->questions as $question)
-                        <tr>
-                            <td scope="row">{{ $question->question }}</td>
-                            <td scope="row" class="text-center">
-                                @if ($question->image)
-                                    <a href="{{ asset($question->image) }}" target="_blank"
-                                        class="btn btn-sm btn-light">
-                                        Ver imagen
-                                    </a>
-                                @endif
-                            </td>
-                            <td scope="row" class="text-center">{{ $question->answer_1 }}</td>
-                            <td scope="row" class="text-center">{{ $question->answer_2 }}</td>
-                            <td scope="row" class="text-center">{{ $question->answer_3 }}</td>
-                            <td scope="row" class="text-center">{{ $question->answer_4 }}</td>
-                            <td scope="row" class="text-center text-success font-weight-bold">
-                                {{ substr($question->correct_answer, -1) }}. Respuesta</td>
-                            <td scope="row" class="text-center flex">
-                                <a href="{{ route('admin.trivia.questions.edit', [$quiz->id, $question->id]) }}"
-                                    class="btn btn-sm btn-primary text-white mr-2">
-                                    <i class="fa fa-pen"></i>
-                                </a>
-                                <a href="{{ route('admin.trivia.questions.destroy', [$quiz->id, $question->id]) }}"
-                                    class="btn btn-sm btn-danger">
-                                    <i class="fa fa-times"></i>
-                                </a>
-                            </td>
+            <div class="table-responsive">
+                <table class="table table-bordered table-sm mt-4">
+                    <thead>
+                        <tr class="text-center">
+                            <th scope="col">Preguntas</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">1. Respuesta</th>
+                            <th scope="col">2. Respuesta</th>
+                            <th scope="col">3. Respuesta</th>
+                            <th scope="col">4. Respuesta</th>
+                            <th scope="col">Respuesta correcta</th>
+                            <th scope="col">Operaciones</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($quiz->questions as $question)
+                            <tr>
+                                <td scope="row">{{ $question->question }}</td>
+                                <td scope="row" class="text-center">
+                                    @if ($question->image)
+                                        <a href="{{ asset($question->image) }}" target="_blank"
+                                            class="btn btn-sm btn-light">
+                                            Ver imagen
+                                        </a>
+                                    @endif
+                                </td>
+                                <td scope="row" class="text-center">{{ $question->answer_1 }}</td>
+                                <td scope="row" class="text-center">{{ $question->answer_2 }}</td>
+                                <td scope="row" class="text-center">{{ $question->answer_3 }}</td>
+                                <td scope="row" class="text-center">{{ $question->answer_4 }}</td>
+                                <td scope="row" class="text-center text-success font-weight-bold">
+                                    {{ substr($question->correct_answer, -1) }}. Respuesta</td>
+                                <td scope="row" class="text-center flex">
+                                    <a href="{{ route('admin.trivia.questions.edit', [$quiz->id, $question->id]) }}"
+                                        class="btn btn-sm btn-primary text-white mr-2">
+                                        <i class="fa fa-pen"></i>
+                                    </a>
+                                    <a href="{{ route('admin.trivia.questions.destroy', [$quiz->id, $question->id]) }}"
+                                        class="btn btn-sm btn-danger">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</x-app-layout>
+</x-trivia-layout>

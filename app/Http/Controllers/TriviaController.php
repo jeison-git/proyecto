@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Quiz;
 use App\Models\Answer;
 use App\Models\Result;
+use Illuminate\Support\Facades\Validator;
 
 class TriviaController extends Controller
 {
@@ -14,6 +15,7 @@ class TriviaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function trivia()
     {
         $quizzes = Quiz::where('status', 'PUBLICADO')->where(function ($query) {
@@ -31,6 +33,14 @@ class TriviaController extends Controller
      */
     public function quiz($slug)
     {
+
+       /*  $request->validate([
+            'answer_1' => 'required|min:1',
+            'answer_2' => 'required|min:1',
+            'answer_3' => 'required|min:1',
+            'answer_4' => 'required|min:1',
+        ]); */
+
 
         $quiz = Quiz::whereSlug($slug)->with('questions.myAnswer', 'myResult')->first();
 

@@ -5,9 +5,9 @@
             <input wire:keydown="limpiar_page" wire:model="search" class="form-control w-100" placeholder="Escriba un nombre o correo ...">
         </div>
 
-        @if ($users->count())            
-        
-            <div class="card-body">
+        @if ($users->count())
+
+            <div class="card-body table-responsive">
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -20,7 +20,7 @@
 
                     <tbody>
                         @foreach ($users as $user)
-                            
+
                             <tr>
                                 <td>{{$user->id}}</td>
                                 <td>{{$user->name}}</td>
@@ -29,7 +29,7 @@
                                     <a class="btn btn-primary" href="{{route('admin.users.edit', $user)}}">Editar</a>
                                 </td>
                             </tr>
-                            
+
                         @endforeach
                     </tbody>
 
@@ -39,7 +39,7 @@
             <div class="card-footer">
                 {{$users->links()}}
             </div>
-    
+
         @else
             <div class="card-body">
                 <strong>No se encontro el usuario ...</strong>

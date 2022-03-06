@@ -7,7 +7,7 @@
             <button
                 class="block h-12  overflow-hidden text-white bg-blue-500 rounded-lg shadow focus:outline-none hover:bg-blue-700"
                 wire:click="resetFilters">
-                <i class="mr-2 text-xs fas fa-archway"></i>
+                <i class="mr-2 text-xs fa fa-ellipsis-v"></i>
                 Todos los géneros
             </button>
 
@@ -40,7 +40,7 @@
                 <button
                     class="block h-12 px-4 overflow-hidden w-full text-white bg-blue-500 rounded-lg shadow focus:outline-none hover:bg-blue-700"
                     x-on:click="open = true">
-                    <i class="mr-2 text-sm fas fa-tags"></i>
+                    <i class="mr-2 text-sm fa fa-language"></i>
                     Idioma
                     <i class="ml-2 text-sm fas fa-angle-down"></i>
                 </button>
@@ -63,7 +63,7 @@
                 <button
                     class="block h-12 px-4 overflow-hidden text-white bg-blue-500 rounded-lg shadow focus:outline-none hover:bg-blue-700"
                     x-on:click="open = true">
-                    <i class="mr-2 text-sm fas fa-tags"></i>
+                    <i class="mr-2 text-sm fa fa-calendar"></i>
                     Año de Publicación
                     <i class="ml-2 text-sm fas fa-angle-down"></i>
                 </button>

@@ -1,5 +1,11 @@
-<x-app-layout>
+<x-trivia-layout>
     <x-slot name="header">
+        <h5 class="card-title">
+            <a href="{{ url()->previous() }}" class="btn btn-sm btn-secondary">
+                <i class="fa fa-arrow-left"></i>
+                Regresar
+            </a>
+        </h5>
         Editar pregunta '{{ $question->question }}'
     </x-slot>
     @if (session('info'))
@@ -81,4 +87,4 @@
             </h5>
         </div>
     </div>
-</x-app-layout>
+</x-trivia-layout>

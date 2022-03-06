@@ -19,7 +19,7 @@
 
         {{--ckeditor para la descripcion--}}
         <script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
-        <script src="{{asset('js/editor/publications/form.js')}}"></script>
+        <script src="{{asset('js/instructor/courses/form.js')}}"></script>
 
     </x-slot>
 

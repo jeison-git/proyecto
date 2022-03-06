@@ -1,12 +1,12 @@
 @extends('adminlte::page')
 
-@section('title', 'Prices')
+@section('title', 'A quien va dirigido')
 
 @section('content_header')
 
     <a class="btn btn-primary float-right" href="{{route('admin.prices.create')}}">Agregar precio</a>
 
-    <h1>Lista de precios</h1>
+    <h1> Lista de precios / A quien va dirigido </h1>
 @stop
 
 @section('content')
@@ -14,11 +14,11 @@
     @if (session('info'))
             <div class="alert alert-primary">
                 {{session('info')}}
-            </div>      
+            </div>
     @endif
-    
+
    <div class="card">
-       <div class="card-body">
+       <div class="card-body table-responsive">
            <table class="table table-striped">
                <thead>
                    <tr>

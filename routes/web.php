@@ -7,7 +7,10 @@ use App\Http\Controllers\Publication\PublicationController;
 use App\Http\Controllers\TestController;
 use App\Http\Livewire\CourseStatus;
 use App\Http\Controllers\TriviaController;
+use App\Http\Livewire\AbautMe;
+use App\Http\Livewire\Publication\Download;
 use App\Http\Livewire\Trivia\Trivia;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +52,8 @@ Route::get('publications/{publication}', [PublicationController::class, 'show'])
 
 Route::post('publications/{publication}/enrolled', [PublicationController::class, 'enrolled'])->middleware('auth')->name('publications.enrolled');
 
+Route::get('publication-download/{publication}', Download::class, 'download')->name('publication.download');
+
 /* Route::get('publication-status/{publication}', PublicationStatus::class, 'status')->name('publications.status')->middleware('auth'); */
 
 //Rutas de Trivias o cuestionarios
@@ -61,5 +66,11 @@ Route::get('trivia/{slug}', [TriviaController::class, 'quiz'])->middleware('auth
 
 Route::post('trivia/{slug}/result', [TriviaController::class, 'result'])->middleware('auth')->name('quiz.result');
 
-
 Route::get('questions-trivia/', Trivia::class)->name('trivia.questions');
+
+//Rutas sobre nosotros y contactanos o soporte al usuario
+Route::get('abaut-me', AbautMe::class)->name('abautme');
+
+//Rutas centro de apoyo contactanos
+Route::get('contacts', [ContactController::class, 'index'])->name('contacts.index');/* contacto */
+

@@ -15,6 +15,21 @@
             'route'  => route('publications.index'),
             'active' => request()->routeIs('publications.*')
         ],
+        [
+            'name'   => 'Cuestionarios / Trivias',
+            'route'  => route('trivia.questions'),
+            'active' => request()->routeIs('trivia.*')
+        ],
+        [
+            'name'   => '¿Que es CyberUNESR?',
+            'route'  => route('abautme'),
+            'active' => request()->routeIs('abautme')
+        ],
+        [
+            'name'   => 'Centro de Ayuda',
+            'route'  => route('contacts.index'),
+            'active' => request()->routeIs('contacts.*')
+        ],
 
     ];
 
@@ -25,9 +40,9 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
+                <div class="flex items-center flex-shrink-0">
                     <a href="{{ route('home') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                        <x-jet-application-mark class="block w-auto h-9" />
                     </a>
                 </div>
 
@@ -47,11 +62,11 @@
                 @auth
 
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
-                    <div class="ml-3 relative">
+                    <div class="relative ml-3">
                         <x-jet-dropdown align="right" width="60">
                             <x-slot name="trigger">
                                 <span class="inline-flex rounded-md">
-                                    <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
+                                    <button type="button" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded-md hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50">
                                         {{ Auth::user()->currentTeam->name }}
 
                                         <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -97,20 +112,20 @@
 
                 @endauth
                 <!-- Settings Dropdown -->
-                <div class="ml-3 relative">
+                <div class="relative ml-3">
                     @auth
 
                     <x-jet-dropdown align="right" width="48">
                         <x-slot name="trigger">
 
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                                <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
-                                    <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                                <button class="flex text-sm transition duration-150 ease-in-out border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300">
+                                    <img class="object-fill w-16 h-16 p-1 rounded-full shadow" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                                 </button>
                             @else
 
                                 <span class="inline-flex rounded-md">
-                                    <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                                    <button type="button" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded-md hover:text-gray-700 focus:outline-none">
                                         {{ Auth::user()->name }}
 
                                         <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -138,7 +153,7 @@
                             @can('Leer cursos')
 
                                 <x-jet-dropdown-link href="{{ route('instructor.courses.index') }}">
-                                    {{ __('Instructor') }}
+                                    {{ __('Facilitador') }}
                                 </x-jet-dropdown-link>
 
                             @endcan
@@ -173,16 +188,16 @@
                     </x-jet-dropdown>
 
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
-                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline border hover:text-blue-500 border-slate-300 btn hover:border-blue-300">Iniciar sesión</a>
+                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline border hover:text-blue-500 border-slate-300 btn hover:border-blue-300">Registrarse</a>
                     @endauth
                 </div>
             </div>
 
             <!-- Hamburger -->
-            <div class="-mr-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+            <div class="flex items-center -mr-2 sm:hidden">
+                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 text-gray-400 transition duration-150 ease-in-out rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500">
+                    <svg class="w-6 h-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -210,13 +225,13 @@
             <div class="flex items-center px-4">
                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                     <div class="flex-shrink-0 mr-3">
-                        <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                        <img class="object-cover w-16 h-16 rounded-full" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                     </div>
                 @endif
 
                 <div>
-                    <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                    <div class="text-base font-medium text-gray-800">{{ Auth::user()->name }}</div>
+                    <div class="text-sm font-medium text-gray-500">{{ Auth::user()->email }}</div>
                 </div>
             </div>
 
@@ -226,10 +241,14 @@
                     {{ __('Perfil') }}
                 </x-jet-responsive-nav-link>
 
+                <x-jet-responsive-nav-link href="{{ route('editor.publications.index') }}" :active="request()->routeIs('editor.publications.index')">
+                    {{ __('Publicar En Repositorio') }}
+                </x-jet-responsive-nav-link>
+
                 @can('Leer cursos')
 
                     <x-jet-responsive-nav-link href="{{ route('instructor.courses.index') }}" :active="request()->routeIs('instructor.courses.index')">
-                        {{ __('Instructor') }}
+                        {{ __('Facilitador') }}
                     </x-jet-responsive-nav-link>
 
                 @endcan
@@ -301,10 +320,10 @@
             </x-jet-responsive-nav-link>
 
             <x-jet-responsive-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
-                Login
+                Iniciar sesión
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('register') }}" :active="request()->routeIs('register')">
-                Register
+                Registrarse
             </x-jet-responsive-nav-link>
         </div>
         @endauth

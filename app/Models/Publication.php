@@ -48,9 +48,9 @@ class Publication extends Model
     }
     ////////////////////////////////////////////////////
     //relacion uno a uno
-    /* public function observation(){
-        return $this->hasOne('App\Models\Observation');
-    } */
+    public function check(){
+        return $this->hasOne('App\Models\Check');
+    }
 
     //relacion uno a muchos inversa (muchos cursos son de un profesor)
     public function editor(){

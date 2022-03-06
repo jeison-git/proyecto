@@ -149,9 +149,9 @@ class PublicationController extends Controller
         return redirect()->route('editor.publications.edit', $publication);
     }
 
-    public function observation(Publication $publication)
+    public function check(Publication $publication)
     {
 
-        return view('editor.publications.observation', compact('publication'));
+        return view('editor.publications.check', compact('publication'));
     }
 }

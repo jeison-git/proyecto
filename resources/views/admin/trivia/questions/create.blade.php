@@ -1,6 +1,12 @@
-<x-app-layout>
+<x-trivia-layout>
     <x-slot name="header">
-        Agregar una nueva pregunta para Trivia '{{ $quiz->title }}'
+        <h5 class="card-title">
+            <a href="{{ url()->previous() }}" class="btn btn-sm btn-secondary">
+                <i class="fa fa-arrow-left"></i>
+                Regresar
+            </a>
+        </h5>
+        Agregar una nueva pregunta para la Trivia '{{ $quiz->title }}'
     </x-slot>
     @if (session('info'))
         <div class="alert alert-primary shadow-lg" role="alert">
@@ -73,4 +79,4 @@
             </h5>
         </div>
     </div>
-</x-app-layout>
+</x-trivia-layout>

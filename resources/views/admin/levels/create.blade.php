@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Level-create')
+@section('title', 'Level-Create')
 
 @section('content_header')
     <h1>Crear Niveles</h1>
@@ -21,7 +21,7 @@
 
                 </div>
                 {!! Form::submit('Crear nivel', ['class' => 'btn btn-primary']) !!}
-            {!! Form::close() !!}    
+            {!! Form::close() !!}
         </div>
     </div>
 @stop

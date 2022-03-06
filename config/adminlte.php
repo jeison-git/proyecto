@@ -45,8 +45,8 @@ return [
     |
     */
 
-    'logo' => '<b>EVI</b>Unesr',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Cyber</b>UNESR',
+    'logo_img' => 'vendor/adminlte/dist/img/logosimon.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -225,11 +225,6 @@ return [
 
     'menu' => [
         [
-            'text'   => 'search',
-            'search' => true,
-            'topnav' => true,
-        ],
-        [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
@@ -302,6 +297,14 @@ return [
             'text' => 'Trivia/Cuestionario',
             'route'  => 'admin.trivia.quizzes.index',
             'icon' => 'fab fa-fw fas fa-question-circle',
+
+        ],
+        ['header' => 'RESPONDER LOS MENSAJES'],
+        [
+            'text' => 'Centro de Ayuda',
+            'route'  => 'admin.contacts.index',
+            'icon' => 'fab fa-fw fa fa-comments',
+
         ],
 
     ],

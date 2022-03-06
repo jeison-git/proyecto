@@ -7,7 +7,6 @@
         @if ($course->image->count())
             <img style="object-fit: fill;" class="{{-- object-fill --}}object-center w-64 h-64 rounded-t-md"
                 src="{{ Storage::url($course->image->url) }}" alt="" />{{-- primera imagen del producto --}}
-
         @else
             <img class="object-contain w-64 h-64 rounded-full"
                 src="https://img.icons8.com/fluency/64/000000/nothing-found.png" alt="nothing-found">
@@ -52,10 +51,17 @@
                 <p class="my-2 text-gray-600">US$ {{ $course->price->value }}</p>
             @endif
 
-            <a href="{{ route('courses.show', $course) }}" class="btn btn-primary btn-block">
-                Más información
-            </a>
+            @can('enrolled', $course)
+                <a class="btn btn-danger btn-block mt-4" href="{{ route('courses.status', $course) }}"> Continuar con el
+                    curso</a>
+            @else
+                <a href="{{ route('courses.show', $course) }}" class="btn btn-primary btn-block">
+                    Más información
+                </a>
+            @endcan
+
         </div>
+
 
     </div>
 

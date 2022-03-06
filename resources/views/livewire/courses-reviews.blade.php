@@ -2,10 +2,10 @@
        <h1 class="font-bold text-3xl text-gray-800 mb-4">Valoraciones</h1>
 
         @can('enrolled',$course)
-         
-       <article class="mb-4">  
+
+       <article class="mb-4">
            @can('valued', $course)
-               
+
         <textarea wire:model="comment" class="form-input w-full" rows="3" placeholder="Ingrese una reseña sobre el curso ..."></textarea>
         <div class="flex items-center">
             <button class="btn btn-primary mr-2" wire:click="store">Agregar</button>
@@ -26,7 +26,7 @@
                     <i class="fas fa-star text-{{$rating >=5 ? 'yellow' : 'gray'}}-300"></i>
                 </li>
             </ul>
-        </div> 
+        </div>
 
         @else
         <!-- Alert Info -->
@@ -45,30 +45,30 @@
 
         @endcan
 
-        </article> 
-           
+        </article>
+
         @endcan
 
    {{-- error de property no se arreglarlo todavia--}}
         <div class="card ">
             <div class="card-body">
-                <p class="text-gray-900 text-xl mb-4">{{$course->reviews->count()}} valoraciones</p>                
-                
-                @foreach ($course->reviews as $review)                    
-                
-                    <article class="flex mb-4 text-gray-800">
-                            <figure class="mr-4">
-                                <img class="h-12 w-12 object-cover rounded-full shadow-lg" src="{{$review->user->profile_photo_url ?? null}}" alt="">
+                <p class="text-gray-900 text-xl mb-4">{{$course->reviews->count()}} valoraciones</p>
+
+                @foreach ($course->reviews as $review)
+
+                    <article class="grid md:grid-cols-1 flex-1 justify-start items-center mb-4 text-gray-800">
+                            <figure class="mr-4 mb-2">
+                                <img class="h-12 w-12 object-fill rounded-full shadow-lg" src="{{$review->user->profile_photo_url ?? null}}" alt="">
                             </figure>
                         <div class=" card flex-1">
                             <div class="card-body bg-gray-200">
-                                <p><b>{{$review->user->name ?? null}}</b><i class="fas fa-star text-yellow-300"></i> {{$review->rating}}</p>                    
+                                <p><b>{{$review->user->name ?? null}}</b><i class="fas fa-star text-yellow-300"></i> {{$review->rating}}</p>
                                 {{$review->comment}}
                             </div>
                         </div>
                     </article>
 
-                @endforeach              
+                @endforeach
 
             </div>
         </div>

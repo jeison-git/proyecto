@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Asignar Roles')
 
 @section('content_header')
     <h1>Asignar un rol</h1>
@@ -15,13 +15,13 @@
             <h1 class="h5">Lista de roles</h1>
 
             {!! Form::model($user, ['route' => ['admin.users.update', $user], 'method' => 'put']) !!}
-        
+
             @foreach ($roles as $role)
                 <div>
                     <label>
                         {!! Form::checkbox('roles[]', $role->id, null, ['class' => 'mr-1']) !!}
                         {{$role->name}}
-                    </label>                
+                    </label>
                 </div>
             @endforeach
 

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Level-edit')
+@section('title', 'Level-Edit')
 
 @section('content_header')
     <h1>Actualizar nivel</h1>
@@ -11,7 +11,7 @@
     @if (session('info'))
         <div class="alert alert-primary">
             {{session('info')}}
-        </div>        
+        </div>
     @endif
 
     <div class="card">
@@ -27,7 +27,7 @@
 
                 </div>
                 {!! Form::submit('Actualizar nivel', ['class' => 'btn btn-primary']) !!}
-            {!! Form::close() !!}    
+            {!! Form::close() !!}
         </div>
     </div>
 @stop

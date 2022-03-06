@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'EVIunesr')
+@section('title', 'Cursos CyberUNESR')
 
 @section('content_header')
     <h1>Cursos por aprobar</h1>
@@ -12,11 +12,11 @@
     <div class="alert alert-primary">
         {{session('info')}}
     </div>
-    
+
 @endif
 
     <div class="card">
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -24,21 +24,21 @@
                         <th>Name</th>
                         <th>Categoria</th>
                         <th></th>
-                    </tr>                  
+                    </tr>
                 </thead>
 
                 <tbody>
                     @foreach ($courses as $course)
                        <tr>
-                        
+
                         <td>{{$course->id}}</td>
                         <td>{{$course->title}}</td>
                         <td>{{$course->category->name}}</td>
                         <td>
                             <a class="btn btn-primary" href="{{route('admin.courses.show', $course)}}">Revisar</a>
                         </td>
-                    
-                        </tr>                         
+
+                        </tr>
                     @endforeach
                 </tbody>
 

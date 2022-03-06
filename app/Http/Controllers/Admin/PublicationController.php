@@ -47,9 +47,9 @@ class PublicationController extends Controller
         return redirect()->route('admin.publications.index')->with('info', 'La publicación se publicó con éxito');
     }
 
-    public function observation(Publication $publication)
+    public function check(Publication $publication)
     {
-        return view('admin.publications.observation', compact('publication'));
+        return view('admin.publications.check', compact('publication'));
     }
 
     public function reject(Request $request, Publication $publication)
@@ -59,7 +59,7 @@ class PublicationController extends Controller
             'body' => 'required'
         ]);
 
-        $publication->observation()->create($request->all());
+        $publication->check()->create($request->all());
 
         $publication->status = 1;
         $publication->save();

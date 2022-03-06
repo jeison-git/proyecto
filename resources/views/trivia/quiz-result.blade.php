@@ -1,9 +1,16 @@
 <x-trivia-layout>
     <x-slot name="header">
+        <div class="container flex items-center justify-between mb-4">
+
+            <a href="{{ url()->previous() }}" class="mr-2">
+                <img src="https://img.icons8.com/dusk/25/000000/circled-left-2.png" />
+            </a>
+
+        </div>
         '{{ $quiz->title }}' Resultado de la trivia
     </x-slot>
 
-    <div class="container mb-16 card">
+    <div class="container my-16 card">
         <div class="card-body">
             <div class="alert alert-primary">
                 <i class="fa fa-check text-success"> Respuestas correctas</i> |

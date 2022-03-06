@@ -4,7 +4,7 @@
         <div class="grid px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 sm:grid-cols-2 md:grid-cols-3 gap-x-2 gap-y-2">
 
             <button class="block h-12 px-4 w-full overflow-hidden text-white bg-blue-500 rounded-lg shadow focus:outline-none hover:bg-blue-700" wire:click="resetFilters">
-                <i class="fas fa-archway text-xs mr-2"></i>
+                <i class="fa fa-ellipsis-v text-xs mr-2"></i>
                 Todas las asignaturas
             </button>
 
@@ -12,7 +12,7 @@
             <div class="relative" x-data="{open: false}">
 
                 <button class="block h-12 px-4 w-full overflow-hidden text-white bg-blue-500 rounded-lg shadow focus:outline-none hover:bg-blue-700" x-on:click="open = true">
-                    <i class="fas fa-tags text-sm mr-2"></i>
+                    <i class="fa fa-code text-sm mr-2"></i>
                     Asignaturas
                     <i class="fas fa-angle-down text-sm ml-2"></i>
                 </button>

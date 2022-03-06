@@ -1,10 +1,10 @@
 @extends('adminlte::page')
 
-@section('title', 'Categories')
+@section('title', 'Asignaturas')
 
 @section('content_header')
-    <a class="btn btn-primary btn-sm float-right" href="{{route('admin.categories.create')}}">Nueva categoría</a>
-    <h1>Lista de categorias</h1>
+    <a class="btn btn-primary btn-sm float-right" href="{{route('admin.categories.create')}}">Nueva Asignatura</a>
+    <h1>Lista de asignaturas</h1>
 @stop
 
 @section('content')
@@ -16,7 +16,7 @@
     @endif
 
     <div class="card">
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -47,9 +47,9 @@
 
                                 <button class="btn btn-danger btn-sm">Eliminar</button>
 
-                                </form>  
+                                </form>
                             </td>
-                        </tr>                        
+                        </tr>
                     @endforeach
                 </tbody>
 

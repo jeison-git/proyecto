@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Opinion sobre el curso')
 
 @section('content_header')
     <h1 class="">Observaciones del curso: {{$course->title}}</h1>
@@ -14,12 +14,12 @@
                     {!! Form::label('body', 'Observaciones del curso') !!}
                     {!! Form::textarea('body', null) !!}
 
-                    @error('body')                       
+                    @error('body')
                     <strong class="text-danger">{{$message}}</strong>
                     @enderror
-                    
+
                 </div>
-                 {!! Form::submit('Rechazar curso', ['class' => 'btn btn-primary']) !!}   
+                 {!! Form::submit('Rechazar curso', ['class' => 'btn btn-primary']) !!}
             {!! Form::close() !!}
         </div>
     </div>

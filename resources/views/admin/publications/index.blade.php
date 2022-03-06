@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'BiDigital')
+@section('title', 'Repositorio')
 
 @section('content_header')
     <h1>Publicaciones por aprobar</h1>
@@ -16,7 +16,7 @@
 @endif
 
     <div class="card">
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>

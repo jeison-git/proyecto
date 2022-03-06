@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-trivia-layout>
     <x-slot name="header">
         '{{ $quiz->title }}' Quiz Details
     </x-slot>
@@ -21,26 +21,28 @@
                             {{ $quiz->description }}
                         </div>
                     </div>
-                    <table class="table mt-3">
-                        <thead class="thead-light">
-                            <tr>
-                                <th scope="col">Nombre-Apellido</th>
-                                <th scope="col">Puntaje</th>
-                                <th scope="col">Correcta</th>
-                                <th scope="col">Equivocado</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($quiz->results as $result)
+                    <div class=" table-responsive">
+                        <table class="table mt-3">
+                            <thead class="thead-light">
                                 <tr>
-                                    <td>{{ $result->user->name }}</td>
-                                    <td>{{ $result->point }}</td>
-                                    <td>{{ $result->correct_answer }}</td>
-                                    <td>{{ $result->wrong_answer }}</td>
+                                    <th scope="col">Nombre-Apellido</th>
+                                    <th scope="col">Puntaje</th>
+                                    <th scope="col">Correcta</th>
+                                    <th scope="col">Equivocado</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach ($quiz->results as $result)
+                                    <tr>
+                                        <td>{{ $result->user->name }}</td>
+                                        <td>{{ $result->point }}</td>
+                                        <td>{{ $result->correct_answer }}</td>
+                                        <td>{{ $result->wrong_answer }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div class="col-md-4 div-sm-12">
                     <div class="card">
@@ -98,4 +100,4 @@
         </div>
     </div>
 
-</x-app-layout>
+</x-trivia-layout>

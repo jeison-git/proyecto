@@ -12,10 +12,22 @@ class Trivia extends Component
 
     public function render()
     {
-        $quizzes = Quiz::where('status', 'PUBLICADO')->where(function ($query) {
-            $query->whereNull('finished_at')->orWhere('finished_at', '>', now());
-        })->withCount('questions')->paginate(5);
+        if (auth()->user()) {
 
-        return view('livewire.trivia.trivia', compact('quizzes'));
+            $quizzes = Quiz::where('status', 'PUBLICADO')->where(function ($query) {
+                $query->whereNull('finished_at')->orWhere('finished_at', '>', now());
+            })->withCount('questions')->inRandomOrder()->paginate(40);
+
+            $results = auth()->user()->results;
+
+            return view('livewire.trivia.trivia', compact('quizzes', 'results'));
+        } else {
+
+            $quizzes = Quiz::where('status', 'PUBLICADO')->where(function ($query) {
+                $query->whereNull('finished_at')->orWhere('finished_at', '>', now());
+            })->withCount('questions')->inRandomOrder()->paginate(40);
+
+            return view('livewire.trivia.trivia', compact('quizzes'));
+        }
     }
 }

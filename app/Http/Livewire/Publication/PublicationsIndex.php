@@ -25,12 +25,13 @@ class PublicationsIndex extends Component
         $dates        = Date::all();
 
 
-       $publications = Publication::latest('id')
+       $publications = Publication::where('status', 3)
+                       ->inRandomOrder()
                        ->with('date', 'category_publication', 'language')
                        ->category_publication($this->category_publication_id)
                        ->language($this->language_id)
                        ->date($this->date_id)
-                       ->paginate(8);
+                       ->paginate(12);
 
 
         return view('livewire.publication.publications-index', compact('publications', 'categories', 'languages', 'dates'));

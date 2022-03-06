@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Categories')
+@section('title', 'Categoria de publicaciones')
 
 @section('content_header')
     <a class="btn btn-primary btn-sm float-right" href="{{route('admin.categorypublications.create')}}">Nueva categoría</a>
@@ -16,7 +16,7 @@
     @endif
 
     <div class="card">
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Levels')
+@section('title', 'Dificultad')
 
 @section('content_header')
 
@@ -14,11 +14,11 @@
     @if (session('info'))
         <div class="alert alert-primary">
             {{session('info')}}
-        </div>        
+        </div>
     @endif
 
     <div class="card">
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -49,8 +49,8 @@
                                     <button class="btn btn-danger" type="submit">Eliminar</button>
 
                                 </form>
-                            </td>    
-                        </tr>                        
+                            </td>
+                        </tr>
                     @endforeach
                 </tbody>
 
