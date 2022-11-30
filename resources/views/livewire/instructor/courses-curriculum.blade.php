@@ -1,7 +1,7 @@
-<div>  
+<div>
 
-    <h1 class="text-2xl font-bold">LECCIONES DEL CURSO</h1>
-    
+    <h1 class="text-2xl font-bold">LECCIONES DEL TALLER / CURSO / ETC.</h1>
+
         <hr class="mt-2 mb-6">{{-- esta es el espacio de separación--}}
 
         @foreach ($course->sections as $item)
@@ -12,17 +12,17 @@
                     @if ($section->id == $item->id)
 
                         <form wire:submit.prevent="update">
-                            <input wire:model="section.name"  class="form-input mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-blue-500 sm:text-sm" placeholder="Ingrese el nombre de la sección">
-                       
+                            <input wire:model="section.name"  class="form-input mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-blue-500 sm:text-sm" placeholder="Ingrese el nombre de la sección / unidad / capítulo / etc.">
+
                             @error('section.name')
-                                <span class="text-xs text-red-500">{{$message}}</span>                           
+                                <span class="text-xs text-red-500">{{$message}}</span>
                              @enderror
-                       
+
                         </form>
 
-                    @else  
+                    @else
                         <header class="flex justify-between items-center">
-                            <h1 x-on:click="open = !open" class="cursor-pointer"><strong>Sección:</strong>{{$item->name}}</h1>
+                            <h1 x-on:click="open = !open" class="cursor-pointer"><strong>Sección / Unidad / Capítulo: </strong> {{$item->name}} </h1>
 
                             <div>
                                 <i class="fas fa-edit cursor-pointer text-blue-500" wire:click="edit({{$item}})"></i>
@@ -56,11 +56,11 @@
                     <div class="mb-4">
 
                         <input wire:model="name" class="form-input mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-blue-500 sm:text-sm" placeholder="Escriba el nombre de la sección">
-                        
+
                         @error('name')
-                          <span class="text-xs text-red-500">{{$message}}</span>  
+                          <span class="text-xs text-red-500">{{$message}}</span>
                         @enderror
-                    
+
                     </div>
 
                     <div class="flex justify-end">
@@ -72,5 +72,5 @@
 
             </article>
         </div>
-    
+
 </div>

@@ -10,8 +10,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
 
-    <link rel="shortcut icon" type="image/png" href="{{ asset('/img/logos/logosimon.png') }}">
-    <link rel="shortcut icon" sizes="200x200" href="{{ asset('/img/logos/logosimon.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('/img/logos/cattleya128.png') }}">
+    <link rel="shortcut icon" sizes="200x200" href="{{ asset('/img/logos/cattleya128.png') }}">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -38,8 +38,8 @@
 
 <body class="font-sans antialiased">
     <x-jet-banner />
-
-    <div class="min-h-screen bg-gray-100">
+{{-- fondo de la pagina --}}
+    <div class="min-h-screen bg-purple-200">
         @livewire('navigation-menu')
         <!-- Page Heading -->
         <!-- Page Content -->

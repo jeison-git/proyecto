@@ -37,7 +37,7 @@
                             class="form-control">
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-block btn-primary" type="submit">Agregar trivia</button>
+                        <button class="btn btn-block {{-- btn-primary --}}btn-success" type="submit">Agregar trivia</button>
                     </div>
                 </form>
             </h5>

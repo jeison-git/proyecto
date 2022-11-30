@@ -4,16 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Carbon\Carbon;
+
 
 class Quiz extends Model
 {
     use HasFactory;
+    use Sluggable;
 
     protected $guarded  = ['id'];
     protected $dates    = ['finished_at'];
     protected $appends  = ['details', 'my_rank'];
+    protected $fillable = ['title', 'description', 'slug', 'status'];
 
     //relacion uno a uno inversa
     public function lesson(){
@@ -68,7 +71,7 @@ class Quiz extends Model
     *
     * @return array
     */
-    public function sluggable(): array
+   public function sluggable()
     {
         return [
             'slug' => [ //slug => databse table - column name

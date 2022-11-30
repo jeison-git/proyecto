@@ -27,7 +27,7 @@
 <body class="font-sans antialiased">
     <x-jet-banner />
 
-    <div class="min-h-screen bg-gray-100">
+    <div class="min-h-screen bg-purple-100">
         @livewire('navigation-menu')
         <!-- Page Heading -->
         <!-- Page Content -->
@@ -35,7 +35,7 @@
         <div class="container grid gap-2 py-4 md:grid-cols-5">
 
             <aside>
-                <h1 class="mb-4 text-lg font-bold">Edición del curso</h1>
+                <h1 class="mb-4 text-lg font-bold">Edición del taller/curso/etc.</h1>
 
                 <ul class="mb-4 text-sm text-gray-900">
 
@@ -43,28 +43,28 @@
                         class="leading-7 mb-1 border-l-4 @routeIs('instructor.courses.index', $course) border-blue-500
 @else
 border-transparent @endif pl-2">
-                        <a href="{{ Route('instructor.courses.index', $course) }}"> Todos mis cursos </a>
+                        <a href="{{ Route('instructor.courses.index', $course) }}"> Todos mis talleres / cursos. </a>
                     </li>
 
                     <li
                         class="leading-7 mb-1 border-l-4 @routeIs('instructor.courses.edit', $course) border-blue-500
 @else
 border-transparent @endif pl-2">
-                        <a href="{{ Route('instructor.courses.edit', $course) }}">Información del curso</a>
+                        <a href="{{ Route('instructor.courses.edit', $course) }}">Información o detalles{{-- del taller/curso/etc. --}}</a>
                     </li>
 
                     <li
                         class="leading-7 mb-1 border-l-4  @routeIs('instructor.courses.curriculum', $course) border-blue-500
 @else
 border-transparent @endif pl-2">
-                        <a href="{{ Route('instructor.courses.curriculum', $course) }}">Lecciones del curso</a>
+                        <a href="{{ Route('instructor.courses.curriculum', $course) }}">Lecciones o temas {{-- del taller/curso/etc. --}}</a>
                     </li>
 
                     <li
                         class="leading-7 mb-1 border-l-4 @routeIs('instructor.courses.goals', $course) border-blue-500
 @else
 border-transparent @endif pl-2">
-                        <a href="{{ Route('instructor.courses.goals', $course) }}">Metas del curso</a>
+                        <a href="{{ Route('instructor.courses.goals', $course) }}">Metas o objetivos {{-- del taller/curso/etc. --}}</a>
                     </li>
 
                     <li
@@ -96,7 +96,7 @@ border-transparent @endif pl-2">
                     @case(2)
                         <div class="font-semibold text-center text-gray-800 card">
                             <div class="card-body">
-                                Este curso se encuentra en revisión
+                                Este contenido se encuentra en revisión
                             </div>
                         </div>
                     @break
@@ -104,7 +104,7 @@ border-transparent @endif pl-2">
                     @case(3)
                         <div class="font-semibold text-center text-gray-800 card">
                             <div class="card-body">
-                                Este curso se encuentra publicado
+                                Este contenido se encuentra publicado
                             </div>
                         </div>
                     @break

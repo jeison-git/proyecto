@@ -35,7 +35,7 @@
                 padding: 8px;
                 margin-top: 14px;
                 border-radius: 6px;
-                background-color: #555555;
+                background-color: #d8b4fe;
                 text-decoration: none !important;
                 font-weight: bold;
             }
@@ -58,7 +58,7 @@
     </style>
 </head>
 
-<body style="margin:0;padding:0;word-spacing:normal;background-color:#939297;">
+<body style="margin:0;padding:0;word-spacing:normal;background-color:#d8b4fe;">
     <div role="article" aria-roledescription="email" lang="en"
         style="text-size-adjust:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;background-color:#939297;">
         <table role="presentation" style="width:100%;border:none;border-spacing:0;">
@@ -73,8 +73,8 @@
                         style="width:94%;max-width:600px;border:none;border-spacing:0;text-align:left;font-family:Arial,sans-serif;font-size:16px;line-height:22px;color:#363636;">
                         <tr>
                             <td style="padding:40px 30px 30px 30px;text-align:center;font-size:24px;font-weight:bold;">
-                                <a href="https://cyberunesr.com/" style="text-decoration:none;"><img
-                                        src="{{ asset('img/logos/logologin.gif') }}" width="165" alt="Logo"
+                                <a {{-- href="https://cyberunesr.com/" --}} style="text-decoration:none;"><img
+                                        src="{{ asset('img/logos/logo-fundacion.jpg') }}" width="165" alt="Logo"
                                         style="width:165px;max-width:80%;height:auto;border:none;text-decoration:none;color:#ffffff;"></a>
                             </td>
                         </tr>
@@ -102,7 +102,7 @@
 
                         <tr>
                             <td style="padding:30px;background-color:#ffffff;">
-                                <p style="margin:0;text-align:center;">Con mucho cariño el equipo de trabajo de CyberUNESR.</p>
+                                <p style="margin:0;text-align:center;">Con mucho cariño el equipo de trabajo de FUNDACATTCC.</p>
                             </td>
                         </tr>
 
@@ -122,8 +122,8 @@
                                             src="https://www.mailjet.com/images/theme/v1/icons/ico-social/instagram.png"
                                             width="40" height="40" alt="f"
                                             style="display:inline-block;color:#cccccc;"></a></p> --}}
-                                <p style="margin:0;font-size:14px;line-height:20px;"> Copyright &reg; 2022 CyberUNESR. All
-                                    rights reserved<br><a class="unsub" href="https://cyberunesr.com/"
+                                <p style="margin:0;font-size:14px;line-height:20px;"> Copyright &reg; 2022 FUNDACATTCC. All
+                                    rights reserved<br><a class="unsub" {{-- href="https://cyberunesr.com/" --}}
                                         style="color:#cccccc;text-decoration:underline;">Visitanos</a></p>
                             </td>
                         </tr>

@@ -2,7 +2,7 @@
     <div class="card-body bg-gray-100">
 
         <header>
-            <h1 x-on:click="open = !open" class="cursor-pointer">Recursos de la lección</h1>
+            <h1 x-on:click="open = !open" class="cursor-pointer">Recursos de la lección o tema.</h1>
         </header>
 
         <div x-show="open">
@@ -13,7 +13,7 @@
                     <p><i wire:click="download" class="fas fa-download text-gray-500 mr-2 cursor-pointer"></i>{{$lesson->resource->url}}</p>
                     <i wire:click="destroy" class="fas fa-trash text-red-500 cursor-pointer"></i>
                 </div>
-            @else              
+            @else
                 <form wire:submit.prevent="save">
                     <div class="flex items-center">
                         <input wire:model="file" type="file" class="form-input flex-1">
@@ -23,12 +23,12 @@
                         Cargando ...
                     </div>
                     @error('file')
-                        <span class="text-xs text-red-500">{{$message}}</span>                    
+                        <span class="text-xs text-red-500">{{$message}}</span>
                     @enderror
                 </form>
             @endif
 
         </div>
 
-    </div>    
+    </div>
 </div>

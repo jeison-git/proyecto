@@ -28,12 +28,12 @@
             </div>
 
             @can('enrolled', $publication)
-                <a class="mt-4 btn btn-primary btn-block" href="{{ route('publications.show', $publication) }}"> Recurso Consultado</a>
+                <a class="mt-4 btn {{-- btn-primary --}} bg-green-500 hover:bg-green-700 hover:text-white btn-block" href="{{ route('publications.show', $publication) }}"> Recurso Consultado</a>
 
             @else
                 <form action="{{ route('publications.enrolled', $publication) }}" method="POST">
                     @csrf
-                    <button class="btn btn-danger btn-block" type="submit"> Consultar </button>
+                    <button class="btn {{-- btn-danger --}} bg-purple-500 hover:bg-purple-700 hover:text-white btn-block" type="submit"> Consultar </button>
                 </form>
             @endcan
 

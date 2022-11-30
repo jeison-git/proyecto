@@ -1,6 +1,6 @@
 <x-app-layout>
     {{-- imagen de presentacion y detalles del curso --}}
-    <section class="bg-gray-300 py-12 shadow-lg mb-12">
+    <section class="bg-green-400 py-12 shadow-lg mb-12">
 
         <div class="container flex items-center justify-between mb-4">
 
@@ -71,7 +71,7 @@
                     </div>
 
                     @can('enrolled', $publication){{-- ojo revisar luego --}}
-                        <a class="btn btn-danger btn-block mt-4 cursor-default">
+                        <a class="btn {{-- btn-danger --}} bg-purple-500 hover:bg-purple-700 hover:text-white btn-block mt-4 cursor-default">
                             @if ($publication->resource)
                                 <div>
                                     DESCARGA PARA LEER
@@ -89,7 +89,7 @@
                         <p class="text-sm font-semibold text-gray-500 mt-3 mb-2">Comienza a Disfrutar la lectura</p>
                         <form action="{{ route('publications.enrolled', $publication) }}" method="POST">
                             @csrf
-                            <button class="btn btn-danger btn-block" type="submit"> Revisar </button>
+                            <button class="btn {{-- btn-danger --}}bg-green-500 hover:bg-green-700 hover:text-white btn-block" type="submit"> Revisar </button>
                         </form>
                     @endcan
 

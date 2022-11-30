@@ -1,10 +1,10 @@
-<div class="container py-8">    
-    <!-- Aca se encuentra la tabla de cursos realizados por el instructor -->    
+<div class="container py-8">
+    <!-- Aca se encuentra la tabla de cursos realizados por el instructor -->
     <x-table-responsive>
 
         <div class="px-6 py-4 flex">
             <input wire:keydown="Limpiar_page" wire:model="search" class="form-input flex-1 rounded focus:outline-none border-2 border-gray-400" placeholder="Ingrese el titulo de un curso ...">
-            <a class="btn btn-primary ml-2" href="{{route('instructor.courses.create')}}">Crear nuevo curso</a>
+            <a class="btn btn-primary ml-2" href="{{route('instructor.courses.create')}}">Crear nuevo taller / curso / etc.</a>
         </div>
 
         @if ($courses->count())
@@ -30,14 +30,14 @@
                 </tr>
                 </thead>
                     <tbody class="bg-white divide-y divide-gray-300">
-                
-                        @foreach ($courses as $course)                    
-                        
+
+                        @foreach ($courses as $course)
+
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
                                     <div class="flex-shrink-0 h-10 w-10">
-                                   
+
                                     @isset($course->image)
                                         <img class="h-10 w-10 rounded-full object-cover object-center" src="{{Storage::url($course->image->url)}}" alt="">
                                     @else
@@ -106,11 +106,11 @@
                                         </span>
                                     @break
                                     @default
-                                        
+
                                 @endswitch
-                                
+
                             </td>
-                            
+
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <a href="{{route('instructor.courses.edit', $course)}}" class="btn btn-primary">Edit</a>
                             </td>
@@ -119,7 +119,7 @@
                         @endforeach
                 <!-- More items... -->
                     </tbody>
-                </table>            
+                </table>
                 <div class="px-6 py-4 whitespace-nowrap">
                 {{$courses->links()}}
             </div>
@@ -129,7 +129,7 @@
                 No hay coincidencia
             </div>
 
-        @endif 
+        @endif
 
     </x-table-responsive>
 

@@ -4,8 +4,7 @@
 
         <ul class="flex flex-wrap justify-center mt-3 sm:mt-0">
             <li>
-                <a href="{{route('abautme')}}" class="mr-2 text-xs text-gray-500 hover:underline md:mr-6 dark:text-gray-400">Sobre
-                    CyberUNESR</a>
+                <a href="{{route('abautme')}}" class="mr-2 text-xs text-gray-500 hover:underline md:mr-6 dark:text-gray-400">¿Quienes Somos?</a>
             </li>
             {{-- <li>
                 <a href="#" class="mr-4 text-sm text-gray-500 hover:underline md:mr-6 dark:text-gray-400">Privacy
@@ -19,7 +18,7 @@
             </li>
         </ul>
         <span class="items-center justify-center text-xs text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a
-                {{-- href="https://flowbite.com" --}} class="hover:underline">CyberUNESR</a>. Todos los derechos reservados.
+                {{-- href="https://flowbite.com" --}} class="hover:underline">FUNDACATTCC</a>. Todos los derechos reservados.
         </span>
     </footer>
 </div>

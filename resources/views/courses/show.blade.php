@@ -1,7 +1,7 @@
 <x-app-layout>
     {{-- imagen de presentacion y detalles del curso --}}
 
-    <section class="bg-gray-200 py-12 shadow-lg mb-12">
+    <section class="bg-green-400 py-12 shadow-lg mb-12">
 
         <div class="container flex items-center justify-between mb-4">
 
@@ -183,19 +183,19 @@
 
                     @can('enrolled', $course)
 
-                        <a class="btn btn-danger btn-block mt-4" href="{{ route('courses.status', $course) }}"> Continuar
-                            con el curso</a>
+                        <a class="btn {{-- btn-danger --}}bg-green-500 hover:bg-green-700 hover:text-white btn-block mt-4" href="{{ route('courses.status', $course) }}"> Continuar
+                            con las lecciones</a>
                     @else
                         @if ($course->price->value == 0)
                             <p class="text-2xl font-semibold text-gray-500 mt-3 mb-2">{{ $course->price->name }}</p>
                             <form action="{{ route('courses.enrolled', $course) }}" method="POST">
                                 @csrf
-                                <button class="btn btn-danger btn-block" type="submit">Matricularse</button>
+                                <button class="btn {{-- btn-danger --}}bg-purple-500 hover:bg-purple-700 hover:text-white btn-block" type="submit">Matricularse</button>
                             </form>
                         @else
                             <p class="text-2xl font-semibold text-gray-500 mt-3 mb-2">US$ {{ $course->price->value }}</p>
-                            <a href="{{ route('payment.checkout', $course) }}" class="btn btn-danger btn-block">Comprar
-                                este curso</a>
+                            <a href="{{ route('payment.checkout', $course) }}" class="btn {{-- btn-danger --}}bg-purple-500 hover:bg-purple-700 hover:text-white btn-block">Comprar
+                                este contenido</a>
                         @endif
 
                     @endcan

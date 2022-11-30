@@ -2,7 +2,7 @@
     <article class="card" x-data="{open: false}">
         <div class="card-body bg-gray-100">
             <header>
-                <h1 x-on:click="open = !open" class="cursor-pointer">Descripción de la lección</h1>
+                <h1 x-on:click="open = !open" class="cursor-pointer">Descripción de la lección o tema.</h1>
             </header>
 
             <div x-show="open">
@@ -30,7 +30,7 @@
                                 <span class="text-sm text-red-500">{{$message}}</span>
                             @enderror
 
-                        <div class="flex justify-end">                            
+                        <div class="flex justify-end">
                             <button wire:click="store" class="btn btn-primary text-sm ml-2">Agregar</button>
                         </div>
                     </div>

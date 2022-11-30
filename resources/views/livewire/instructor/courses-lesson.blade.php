@@ -85,12 +85,12 @@
     <div class="mt-4" x-data="{open: false}">
         <a x-show="!open" x-on:click="open = true" class="flex items-center mb-4 ml-2 cursor-pointer">
             <i class="mr-2 text-2xl text-red-500 fas fa-plus-square"></i>
-             Agregar nueva lección
+             Agregar nueva lección o tema
         </a>
 
         <article class="card" x-show="open">
             <div class="card-body">
-                <h1 class="mb-4 text-xl font-bold rounded"> Agregar nueva Lección </h1>
+                <h1 class="mb-4 text-xl font-bold rounded"> Agregar nueva Lección o tema </h1>
 
                 <div class="mb-4">
 

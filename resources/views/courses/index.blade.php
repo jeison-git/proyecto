@@ -10,11 +10,9 @@
         </div>
         <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-36">
             <div class="w-full md:w-3/4 lg:w-1/2">
-                <h1 class="text-xl md:text-3xl text-center text-black font-bold bg-white bg-opacity-75">Estudia de Forma
+                <h1 class="text-xl md:text-3xl text-center text-black font-bold bg-white bg-opacity-75">Aquí Aprenderas de Forma
                     Flexible y a tu Ritmo</h1>
-                <p class="mb-4 md:text-lg font-semibold text-center text-black bg-white bg-opacity-50">La UNESR, pone a
-                    su disposicíon un método educativo en línea para complementar los conocimientos recibidos en las
-                    clases presenciales.</p>
+                <p class="mb-4 md:text-lg font-semibold text-center text-black bg-white bg-opacity-50">FUNDACATTCC te ofrece un método de enseñanza en línea para educarte, mantenerte actualizado y consciente de la biodiversidad de Venezuela y mucho más.</p>
                 <!-- component search bar -->
                 <!-- barra de busqueda que se encuentra en el componente livewire -->
                 @livewire('search')

@@ -6,7 +6,7 @@
             'active' => request()->routeIs('home')
         ],
         [
-            'name'   => 'Cursos',
+            'name'   => 'Talleres',
             'route'  => route('courses.index'),
             'active' => request()->routeIs('courses.*')
         ],
@@ -21,7 +21,7 @@
             'active' => request()->routeIs('trivia.*')
         ],
         [
-            'name'   => '¿Que es CyberUNESR?',
+            'name'   => '¿Quienes Somos?',
             'route'  => route('abautme'),
             'active' => request()->routeIs('abautme')
         ],
@@ -188,8 +188,8 @@
                     </x-jet-dropdown>
 
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline border hover:text-blue-500 border-slate-300 btn hover:border-blue-300">Iniciar sesión</a>
-                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline border hover:text-blue-500 border-slate-300 btn hover:border-blue-300">Registrarse</a>
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline border hover:text-green-500 border-slate-300 btn hover:border-green-300">Iniciar sesión</a>
+                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline border hover:text-green-500 border-slate-300 btn hover:border-green-300">Registrarse</a>
                     @endauth
                 </div>
             </div>

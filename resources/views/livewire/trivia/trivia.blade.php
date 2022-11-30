@@ -1,6 +1,6 @@
 <div>
     {{-- portada --}}
-    <section class="object-fill" style="background-image: url({{ asset('img/trivia/trivia01.gif') }})">
+    <section class="object-fill" style="background-image: url({{ asset('img/trivia/trivia.gif') }})">
         <div class="container flex items-center justify-between pt-4">
 
             <a href="{{ url()->previous() }}" class="mr-2">
@@ -13,7 +13,7 @@
                 <h1 class="md:hidden text-xl md:text-3xl text-center text-black font-bold bg-white bg-opacity-100">
                     Bienvenido a la colección de cuestionarios y/o trivias</h1>
                 <p class="md:hidden mb-4 md:text-lg font-semibold text-center text-black bg-white bg-opacity-75">Pon a
-                    prueba tus conocimientos informáticos y mucho más. Vuelve de vez en cuando para descubrir nuevas
+                    prueba tus conocimientos sobre la biodiversidad de Venezuela y mucho más. Vuelve de vez en cuando para descubrir nuevas
                     trivias y mantente activo mentalmente mientras desafías los conocimientos de tus compañeros,
                     familiares y amigos.</p>
             </div>
@@ -23,7 +23,7 @@
         <div>
             <p
                 class="container hidden md:block mb-4 md:text-lg font-semibold text-center text-black bg-white bg-opacity-75">
-                Pon a prueba tus conocimientos informáticos y mucho más. Vuelve de vez en cuando para descubrir nuevas
+                Pon a prueba tus conocimientos sobre la biodiversidad de Venezuela  y mucho más. Vuelve de vez en cuando para descubrir nuevas
                 trivias y mantente activo mentalmente mientras desafías los conocimientos de tus compañeros, familiares
                 y amigos.</p>
         </div>

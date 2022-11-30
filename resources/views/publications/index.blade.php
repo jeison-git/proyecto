@@ -13,8 +13,8 @@
                 <h1 class="text-xl md:text-3xl text-black font-bold bg-white bg-opacity-75">Este Repositorio Con Objetivo
                     Institucional</h1>
                 <p class="mb-4 md:text-lg font-semibold text-center text-black bg-white bg-opacity-50">permite integrar,
-                    publicar y consultar los contenidos académicos que desen generar y compartir nuestros participantes
-                    y facilitadores</p>
+                    publicar y consultar los contenidos académicos de caracter cientificos, que desen generar y compartir nuestros usuarios, participantes, colaboradores
+                    y docentes.</p>
                 <!-- component search bar -->
                 <!-- barra de busqueda que se encuentra en el componente livewire -->
                 @livewire('publication.search')

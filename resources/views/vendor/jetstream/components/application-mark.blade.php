@@ -3,4 +3,4 @@
   <path d="M14.134 45.885A23.914 23.914 0 0024 48c13.255 0 24-10.745 24-24 0-3.516-.756-6.856-2.115-9.866-4.659 15.143-16.608 27.092-31.75 31.751z" fill="#6875F5"/>
 </svg> --}}
 
-<img class="h-16 w-full rounded-full p-1" src="{{ asset('img/logos/logosimon.png') }}" />
+<img class="w-full h-16 p-1 rounded-full" src="{{ asset('img/logos/cattleya128.png') }}" />

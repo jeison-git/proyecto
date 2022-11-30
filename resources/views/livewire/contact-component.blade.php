@@ -2,7 +2,7 @@
     {{-- Componente Formulario de contacto --}}
     <x-jet-form-section submit="save" class="mb-6">
         <x-slot name="title">
-            CENTRO DE AYUDA CONTÁCTANOS
+            CENTRO DE AYUDA, CONTÁCTANOS
         </x-slot>
 
         <x-slot name="description">
@@ -10,7 +10,9 @@
             <div class="">
                 <p class="text-sm text-justify text-gray-700 "> Si tienes alguna duda o pregunta, estamos aquí para
                     ayudarte en todo lo que necesites saber acerca de
-                    CyberUNESR. Sin importar el día:
+                    FUNDACATTCC. Sin importar el día:
+                    <br>
+                    Si deseas contactarnos para ser parte de esta iniciativa, te esperamos.
                     <br>
                     Podemos y queremos asesorarte en tu proceso de aprendizaje o ayudarte con alguna molestia ocacionada en esta plataforma.
                     <br>

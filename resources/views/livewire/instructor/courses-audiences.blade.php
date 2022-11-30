@@ -1,7 +1,7 @@
 <section>
-    <h1 class="text-2xl font-bold">AUDIENCIA DEL CURSO</h1>
+    <h1 class="text-2xl font-bold">AUDIENCIA DEL TALLER / CURSO / ETC.</h1>
     <hr class="mt-2 mb-6">
-    
+
     @foreach ($course->audiences as $item)
 
         <article class="card mb-4">
@@ -13,9 +13,9 @@
                     <input wire:model="audience.name" class="form-input mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-blue-500 sm:text-sm">
                     @error('audience.name')
                         <span class="text-xs text-red-500">{{$message}}</span>
-                    @enderror                
+                    @enderror
                 </form>
-                
+
             @else
                 <header class="flex justify-between">
                     <h1>{{$item->name}}</h1>
@@ -24,8 +24,8 @@
                         <i wire:click="destroy({{$item}})" class="fas fa-trash text-red-500 cursor-pointer"></i>
                     </div>
                 </header>
-                
-            @endif                
+
+            @endif
 
             </div>
         </article>
@@ -36,9 +36,9 @@
         <div class="card-body bg-gray-200">
             <form wire:submit.prevent="store">
                 <input wire:model="name" class="form-input mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-blue-500 sm:text-sm" placeholder="Agregar audiencias del curso ...">
-                
+
                 @error('name')
-                    <span class="text-xs text-red-500">{{$message}}</span>                    
+                    <span class="text-xs text-red-500">{{$message}}</span>
                 @enderror
 
                 <div class="flex justify-end mt-2">

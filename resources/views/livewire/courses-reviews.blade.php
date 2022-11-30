@@ -39,7 +39,7 @@
                 >
             </path>
             </svg>
-            <span class="text-blue-800"> Usted ya ha valorado este curso. </span>
+            <span class="text-blue-800"> Usted ya ha valorado este contenido. </span>
             </div>
             <!-- End Alert Info -->
 

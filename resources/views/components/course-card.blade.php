@@ -52,10 +52,10 @@
             @endif
 
             @can('enrolled', $course)
-                <a class="btn btn-danger btn-block mt-4" href="{{ route('courses.status', $course) }}"> Continuar con el
-                    curso</a>
+                <a class="btn {{-- btn-danger --}} bg-green-500 hover:bg-green-700 hover:text-white btn-block mt-4" href="{{ route('courses.status', $course) }}"> Continuar con el
+                    tema</a>
             @else
-                <a href="{{ route('courses.show', $course) }}" class="btn btn-primary btn-block">
+                <a href="{{ route('courses.show', $course) }}" class="btn {{-- btn-primary --}} bg-purple-500 hover:bg-purple-700 hover:text-white btn-block">
                     Más información
                 </a>
             @endcan

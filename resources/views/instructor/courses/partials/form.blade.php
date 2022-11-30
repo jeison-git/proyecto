@@ -1,5 +1,5 @@
 <div class="mb-4">
-    {!! Form::label('title', 'Titulo del curso: ') !!}
+    {!! Form::label('title', 'Titulo del taller / curso / diplomado: ') !!}
     {!! Form::text('title', null, ['class' => 'form-input block w-full mt-1' . ($errors->has('title') ? ' border-red-600' : '') ]) !!}
 
 @error('title')
@@ -8,7 +8,7 @@
 
 </div>
 
-<div class="mb-4">
+<div class="mb-4 hidden">
     {!! Form::label('slug', 'Slug del curso: ') !!}
     {!! Form::text('slug', null, ['readonly'=> 'readonly', 'class' => 'form-input block w-full mt-1' . ($errors->has('slug') ? ' border-red-600' : '')]) !!}
 
@@ -19,7 +19,7 @@
 </div>
 
 <div class="mb-4">
-    {!! Form::label('subtitle', 'Subtítulo  del curso: ') !!}
+    {!! Form::label('subtitle', 'Subtítulo  del taller / curso / diplomado: ') !!}
     {!! Form::text('subtitle', null, ['class' => 'form-input block w-full mt-1' . ($errors->has('subtitle') ? ' border-red-600' : '')]) !!}
 
 @error('subtitle')
@@ -29,7 +29,7 @@
 </div>
 
 <div class="mb-4">
-    {!! Form::label('description', 'Descripción del curso: ') !!}
+    {!! Form::label('description', 'Descripción del taller / curso / diplomado: ') !!}
     {!! Form::textarea('description', null, ['class' => 'form-input block w-full mt-1' . ($errors->has('description') ? ' border-red-600' : '')]) !!}
 
 @error('description')
@@ -54,7 +54,7 @@
     </div>
 </div>
 
-<h1 class="text-2xl font-bold mt-8 mb-2">Imagen del curso</h1>
+<h1 class="text-2xl font-bold mt-8 mb-2">Imagen del taller / curso / diplomado</h1>
 
 <div class="grid md:grid-cols-2 gap-4 flex-1 justify-between mb-4">
     <figure>
